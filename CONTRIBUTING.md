@@ -6,4 +6,8 @@ If there is unsolved issue simply open an issue and tell me about your/their pro
 2. Increase the version of any files .
 3. Add the name of owner of project in the README.md file .
 4. You may merge pull request after being signed off (solo) or 50% developers team . 
-5. 
+# Making A Fork
+1. Increase the version of any files 
+2. Add "Forked From 000Zer000 Original Name : 
+   ZKit-Framework Github : https://github.com/000Zer000/ZKit-Framework at TIME_OF_YOUR_FORK"
+3. Delete the forked repo after being signed off (solo) or 50% developers team(Your team)
