@@ -28,9 +28,8 @@ If any issues found . please let us know to make this project stronger
    - Build KeyLoggers
    - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
 ## ZKit will be able to :
-   Compile to diffrent operating systems 
 
-   
+   Compile to diffrent operating systems 
 
    Create Ransomware (Next release)
 
@@ -48,9 +47,9 @@ If any issues found . please let us know to make this project stronger
 
    Building A GUI (for guys that dont like text based terminals)
 
-   Even working on ios attacks
+   Even working on ios attacks  
 
-   
+   Using [ZCrypter] as a way for fooling AV
      
  
 ## Installation
@@ -90,7 +89,10 @@ If any issues found . please let us know to make this project stronger
   > Unzip The ZKit.zip File
   
   > If Any Problem Found . You Can Share It With Us On Issue Tab .
-  
+
+  Do you like ZKit ??? 
+   **You Can Help Me keeping everything up with donating me** 
+  [Head to donate section](https://github.com/000Zer000/ZKit-Framework/README.md#Donating)
 
 ### Without Git
 
@@ -102,14 +104,14 @@ If any issues found . please let us know to make this project stronger
       pip install -r requirements.txt
      
     
-  >If Any Problem Found . You Can Share It With Us On Issue Tab .
+  > If Any Problem Found . You Can Share It With Us On Issue Tab .
     
 ## License 
    ZKit-Frmework is Licensed Under Apache License 2.0 Full License At [License](https://github.com/000Zer000/ZKit-Framework/blob/master/LICENSE)
 
 ## Using ZKit 
 
-   ```
+   ```batch
    python zkit.py
    ```
 Outputs Are Saved In Builded Directory .
@@ -122,3 +124,16 @@ Ransomware Can Easily Be Found In \Builded\Ransomware\
 
 If Any Issue found please open an issue to solve it
  
+# Donating 
+
+Do you like ZKit ? Do you often use it ? Do you like my other projects like zcrypter , zshredder , zcrypter-launcher(Comming Soon) all these works ( i mean all) are a solo works . Make a donate and be in the list of donaters in readme show your love to hack with supporting it.
+
+
+My bitcoin address is : 1PLsKLaKGAKrvbLxuUHSA5onH5MifTdLCp
+
+Litecoin : LLdVeJjVUF5pahLTFQ9LUyLnEpDxcZ7dDx
+
+Ethereum : 0x8F2f65746150b6A3e4Fa65d719C1b93d64CEb9eE
+
+Any Other Currency's available too . just open an issue and i will send you the address if its available
+If addresses are broken let me know to update them
