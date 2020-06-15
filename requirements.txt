@@ -1,3 +1,0 @@
-colorama
-datetime
-pywin32
