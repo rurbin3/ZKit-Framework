@@ -27,6 +27,9 @@ If any issues found . please let us know to make this project stronger
    - Build Trojans TCP And UDP
    - Build KeyLoggers
    - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
+   
+   
+ Having Issue , Want A Feature ?? Please open an issue and use the right label . 
 ## ZKit will be able to :
 
    Compile to diffrent operating systems 
