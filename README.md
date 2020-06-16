@@ -21,16 +21,14 @@ If any issues found . please let us know to make this project stronger
 
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is updated it . 
 
-Are you happy it is back ?? or dont you know what am i talking about . say your idea about ZKit-Framework : email to me zkit-framework@protonmail.com
-
 ## ZKit Can :
    - Run Dos Attacks
    - Build Trojans TCP And UDP
    - Build KeyLoggers
    - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
    
-   
- Having Issue , Want A Feature ?? Please open an issue and use the right label . 
+Having Issue , Want A Feature ?? Please open an issue and use the right label .
+this is how you can support hack
 ## ZKit will be able to :
 
    Compile to diffrent operating systems 
