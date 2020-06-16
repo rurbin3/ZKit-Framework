@@ -18,7 +18,6 @@ Special Thank to this project's first watcher and stargazer [Flechablanca19](htt
  ZShredder can shred a file a folder or even a drive or can shred empty space available in a drive
  
 If any issues found . please let us know to make this project stronger
- ![alt tag](https://github.com/000Zer000/ZKit-Framework/blob/master/Gifs_Pics/ZKit.gif)
 
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is updated it . 
 
