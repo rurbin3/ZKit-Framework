@@ -20,7 +20,9 @@ Special Thank to this project's first watcher and stargazer [Flechablanca19](htt
 If any issues found . please let us know to make this project stronger
  ![alt tag](https://github.com/000Zer000/ZKit-Framework/blob/master/Gifs_Pics/ZKit.gif)
 
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete i will try to update it for every version
+[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is updated it . 
+
+Are you happy it is back ?? or dont you know what am i talking about . say your idea about ZKit-Framework : email to me zkit-framework@protonmail.com
 
 ## ZKit Can :
    - Run Dos Attacks
