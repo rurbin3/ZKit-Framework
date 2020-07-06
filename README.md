@@ -11,9 +11,7 @@ Latest Version 1.0.0 (First Release)
 
 Special Thank to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
  
- Are you after a hack or want to safe-delete a file or a drive or a whole computer ??? 
- 
- Chackout my new project [ZShredder](https://github.com/000Zer000/ZShredder)
+ Sorry For Interuption of updates. Internet had problems in my country and still have . as fast as i can . i will update it. new update incoming
  
  ZShredder can shred a file a folder or even a drive or can shred empty space available in a drive
  
