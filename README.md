@@ -13,8 +13,6 @@ Special Thank to this project's first watcher and stargazer [Flechablanca19](htt
  
  Sorry For Interuption of updates. Internet had problems in my country and still have . as fast as i can . i will update it. new update incoming
  
- ZShredder can shred a file a folder or even a drive or can shred empty space available in a drive
- 
 If any issues found . please let us know to make this project stronger
 
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is updated it . 
