@@ -13,12 +13,10 @@ Special Thank to this project's first watcher and stargazer [Flechablanca19](htt
  
  Are you after a hack or want to safe-delete a file or a drive or a whole computer ??? 
  
- Chackout my new project [ZShredder](https://github.com/000Zer000/ZShredder)
  
  ZShredder can shred a file a folder or even a drive or can shred empty space available in a drive
  
 If any issues found . please let us know to make this project stronger
- ![alt tag](https://github.com/000Zer000/ZKit-Framework/blob/master/Gifs_Pics/ZKit.gif)
 
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete i will try to update it for every version
 
@@ -49,7 +47,6 @@ If any issues found . please let us know to make this project stronger
 
    Even working on ios attacks  
 
-   Using [ZCrypter] as a way for fooling AV
      
  
 ## Installation
@@ -66,9 +63,9 @@ If any issues found . please let us know to make this project stronger
    Open Termainal In Linux
    Make Sure You Have Pip Installed . Then Run : 
     
-    $ git clone https://github.com/000Zer000/ZKit-Framework
+    $ git clone https://github.com/000Zer000/ZKit-Framework.git
     $ CD ZKit-Framework
-    $ pip install -r requirements.txt
+    $ pip install -r linrequirements.txt
     
 
 > If Any Problem Found . You Can Share It With Us On Issue Tab .
@@ -82,9 +79,9 @@ If any issues found . please let us know to make this project stronger
    
    Make Sure You Have Pip Installed . Then Run :
    
-      git clone https://github.com/000Zer000/ZKit-Framework
+      git clone https://github.com/000Zer000/ZKit-Framework.git
       CD ZKit-Framework
-      pip install -r requirements.txt
+      pip install -r winrequirements.txt
       
   > Unzip The ZKit.zip File
   
