@@ -3,6 +3,7 @@
 def start():
     try:
         # Doing some imports
+        # Issue 2 That i found it really late . about problem on banner . now fixed
         from core.banners import banners
         from core.core import notify, Color, generate
         from os import popen, path, name as os_name, system
