@@ -11,20 +11,22 @@ Latest Version 1.0.0 (First Release)
 
 Special Thank to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
  
- Sorry For Interuption of updates. Internet had problems in my country and still have . as fast as i can . i will update it. new update incoming
+ Are you after a hack or want to safe-delete a file or a drive or a whole computer ??? 
+ 
+ Chackout my new project [ZShredder](https://github.com/000Zer000/ZShredder)
+ 
+ ZShredder can shred a file a folder or even a drive or can shred empty space available in a drive
  
 If any issues found . please let us know to make this project stronger
+ ![alt tag](https://github.com/000Zer000/ZKit-Framework/blob/master/Gifs_Pics/ZKit.gif)
 
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is updated it . 
+[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete i will try to update it for every version
 
 ## ZKit Can :
    - Run Dos Attacks
    - Build Trojans TCP And UDP
    - Build KeyLoggers
    - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
-   
-Having Issue , Want A Feature ?? Please open an issue and use the right label .
-this is how you can support hack
 ## ZKit will be able to :
 
    Compile to diffrent operating systems 
