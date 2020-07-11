@@ -18,11 +18,12 @@ Special Thank to this project's first watcher and stargazer [Flechablanca19](htt
  
 If any issues found . please let us know to make this project stronger
 
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete i will try to update it for every version
+[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated
 
 ## ZKit Can :
    - Run Dos Attacks
-   - Build Trojans TCP And UDP
+   - Build  Rootkit TCP And UDP
+   - File Transfer TCP And UDP
    - Build KeyLoggers
    - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
 ## ZKit will be able to :
