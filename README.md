@@ -11,8 +11,7 @@ Latest Version 1.2.0 (New Release)
 
 Special Thank to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
- 
-If any issues found . please let us know to make this project stronger
+Need update , found an issue or want a feature ? open an issue and tell me your idea
 
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated
 
