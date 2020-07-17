@@ -13,7 +13,7 @@ first = """
                         {--!Github https://github.com/000Zer000/ZKit-Framework!--}
                                  {--{Rootkit}{KeyLogger}{Dos}{Ransomware}--}
                                      {--!@#$%? Coded By Zer0 ?%$#@!--}
-                                      {--!Re-write        V1.0.0!--}
+                                      {--!Version         1.2.0!--}
 """ 
 helpbanner = """
 ZKit-Framework
