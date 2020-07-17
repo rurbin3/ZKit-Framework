@@ -20,7 +20,7 @@ Need update , found an issue or want a feature ? open an issue and tell me your 
    - Build  Rootkit TCP And UDP
    - Buid File Transfer Payload (Reverse Shell Rootkit Features Included Too)TCP And UDP
    - Build KeyLoggers
-   - Payload could be easily detected but now it uses an encryption method to fool the AVs . Virus total results are Without : 3/59 and With new update : 0/59 
+   - Payload uses an encryption method to fool the AVs . Virus total result is : 0/59 
    
 ## ZKit will be able to :
 
