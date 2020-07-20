@@ -102,7 +102,17 @@ Do you like ZKit ?? If so you can star this project to show your support or [don
       pip install -r winrequirements.txt
           
   > If Any Problem Found . You Can Share It With Us On Issue Tab .
-    
+ 
+# Donating 
+
+Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of donaters in readme _show your love to hack with supporting it._
+
+
+My bitcoin address is : 1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf
+
+Any Other Currency's available too . just open an issue and i will send you the address if its available
+If addresses are broken let me know to update them
+
 ## License 
    ZKit-Frmework is Licensed Under Apache License 2.0 Full License At [License](https://github.com/000Zer000/ZKit-Framework/blob/master/LICENSE)
 
@@ -121,12 +131,4 @@ Ransomware Can Easily Be Found In \Builded\Ransomware\
 
 If Any Issue found please open an issue to solve it
  
-# Donating 
 
-Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of donaters in readme _show your love to hack with supporting it._
-
-
-My bitcoin address is : 1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf
-
-Any Other Currency's available too . just open an issue and i will send you the address if its available
-If addresses are broken let me know to update them
