@@ -22,6 +22,7 @@ Need update , found an issue or want a feature ? open an issue and tell me your 
    - Build KeyLoggers
    - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59 
    
+Do you like ZKit ?? If so you can star this project to show your support or [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking . you can watch this repo for getting notification for new versions . 
 ## ZKit will be able to :
 
    Compile to diffrent operating systems 
@@ -125,11 +126,7 @@ If Any Issue found please open an issue to solve it
 Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of donaters in readme _show your love to hack with supporting it._
 
 
-My bitcoin address is : 1PLsKLaKGAKrvbLxuUHSA5onH5MifTdLCp
-
-Litecoin : LLdVeJjVUF5pahLTFQ9LUyLnEpDxcZ7dDx
-
-Ethereum : 0x8F2f65746150b6A3e4Fa65d719C1b93d64CEb9eE
+My bitcoin address is : 1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf
 
 Any Other Currency's available too . just open an issue and i will send you the address if its available
 If addresses are broken let me know to update them
