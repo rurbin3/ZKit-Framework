@@ -1,1 +1,0 @@
-'zkit-framework core contains these modules : launcher.py, path_shortener.py, randoms.py and these folders : banner, general, windows, linux '

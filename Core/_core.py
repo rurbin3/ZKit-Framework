@@ -5,6 +5,32 @@ The Core Module of ZKit-Framework Contains : some useful methods like a custom c
 # Python 2 is supported too
 from __future__ import print_function,division,absolute_import
 import os
+def Check():
+    if os.name == 'nt':
+        try :
+            import colorama
+        except (ImportError,ModuleNotFoundError):
+            raise SystemExit("Colorama Not Found . Install It Via Pip (pip install colorama)")
+
+    try:
+        import scapy
+    except(ImportError,ModuleNotFoundError):
+        raise SystemExit("Scapy Not Found . Install It Via Pip (pip install scapy)")
+    return True 
+def _init():
+
+    PATH = os.path.dirname(os.path.dirname(__file__))
+    Rootkit_PATH = PATH + "\\Builded\\Rootkit\\"
+    KeyLogger_PATH = PATH + "\\Builded\\KeyLogger\\"
+    Ransomware_PATH = PATH + "\\Builded\\Ransomware\\"
+    os.popen("mkdir {}".format(Rootkit_PATH)).close()
+    os.popen("mkdir {}".format(KeyLogger_PATH)).close()
+    os.popen("mkdir {}".format(Ransomware_PATH)).close()
+    os.popen("mkdir {}".format(PATH + '\\Loot')).close()
+    if os.name == "nt":
+        os.system("cls")
+    else :
+        os.system("clear")
 class Color:
     def __init__(self):
         self.colors = {
@@ -19,24 +45,11 @@ class Color:
                 "reset": "\033[0m", 
                 }
             
-    def GetColor(self, colorname):
-        import os     
+    def GetColor(self, colorname): 
         return self.colors.get(colorname)
 
     def GetAllColors(self):
         return tuple(self.colors.values())
-def random_int(min_, max_):
-    import random
-    ints = list('0123456789')
-    for i in range(min_, max_):
-        num = int(''.join([random.choice(ints) for _ in range(len(str(max_)))]))
-        if num <= max_ and num >= min_:
-            return num
-
-
-def random_ip():
-    dot = '.'
-    return str(random_int(12,220)) + dot + str(random_int(12,220)) + dot + str(random_int(12,220)) + dot + str(random_int(12,220))
 
 def notify(status: str, message: str, ending="\n", flush=False):
     """
@@ -49,11 +62,12 @@ def notify(status: str, message: str, ending="\n", flush=False):
         flush (bool): to flush the stream or not (default=False)
     """
     c = Color()
+    status = status.lower()
     if status == "report":
 
         first = c.GetColor("blue")   + " REPORT " + c.GetColor("reset")
     elif status == "notify":
-        first = c.GetColor("green")  + " NOTIFY " + c.GetColor("reset")
+        first = c.GetColor("green")  + " notify " + c.GetColor("reset")
     elif status == "problem":
         first = c.GetColor("red")    + "CRITICAL" + c.GetColor("reset")
     elif status == "question":
@@ -65,8 +79,26 @@ def notify(status: str, message: str, ending="\n", flush=False):
     else:
         print("[{}] {}".format(first, message), end=ending)
 
-
-def create_file(path: str):
+def askfor(message : str, report : str, default = ['', ''], type = str, args= ()):
+    notify('question', message, '')
+    if type != list:
+        value = type(input(""))
+    elif type == list:
+        value = str(input("")).split()
+    
+    if value == default[0] :   
+        if callable(default[1]):
+            if args == ():
+                value = default[1]()
+            elif args == ("DEFAULT"):
+                value = default[1](value)
+            else :
+                value = default[1](args)
+        else :
+                value = default[1]
+    notify('report', report.replace('\\|', str(value), 1)) 
+    return value
+def createfile(path: str):
     """
     Creates A New file if a file is on the given path if exists asks for overwrite permission
     if yes clears file data then closes it if no asks for another file path
@@ -105,9 +137,9 @@ def create_file(path: str):
 
 def generate(payload_type):
     from base64 import b85encode as be, b85decode as bd
-    from core.rootkit import get_rootkit
+    from Core import GetRootkit
     if payload_type == "rootkit":
-        payload, path = get_rootkit()
+        payload, path = GetRootkit()
     notify("notify", "Opening File To Write Data On It...", "")
     try:
         f = open(path, "w+")
@@ -140,6 +172,15 @@ def generate(payload_type):
         notify("report", 
         "Operation was successful")
 
+def printbanner():
+    from Core._banners import banner1, banner2
+    import random 
+    black, red, green, yellow, blue, magenta, cyan, grey, reset = Color().GetAllColors()
+    random.seed(random.choice(
+        [random.randint(1, 9999), random.randint(1, 998)]))
+    banner = random.choice([banner1, banner2])
+    color = random.choice([red, green, blue, magenta, cyan])
+    print(color + banner + reset)
 if __name__ == "__main__":
     print("Dont Run This File")
 # Used For Test
