@@ -22,7 +22,7 @@ Need update , found an issue or want a feature ? open an issue and tell me your 
    - Build KeyLoggers
    - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59 
    
-Do you like ZKit ?? If so you can star this project to show your support or [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking . you can watch this repo for getting notification for new versions . 
+Do you like ZKit ?? If so you can star this project to show your support or [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking and see your name and your favorite sentence in Our Heros list in README . you can watch this repo for getting notification for new versions . 
 ## ZKit will be able to :
 
    Compile to diffrent operating systems 
