@@ -1,2 +1,2 @@
-Colorama
-Scapy
+colorama
+scapy
