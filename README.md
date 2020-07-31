@@ -123,8 +123,7 @@ Ransomware can be easily found in \Builded\Ransomware\
 If any issue found please open an issue to solve it
  
 # Contact Author
-You can contact me with zkit's official email : zkit-framework@protonmail.com
-Or contact me from my personal email : 000Zer000@protonmail.com 
+You can contact me from my personal email : 000Zer000@protonmail.com 
 
 # Donating 
 
