@@ -12,7 +12,7 @@ Latest Version is 1.3.5 .
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
 Need update , found an issue or want a feature ? Open an issue and tell me your idea . 
-
+Wanna tell me sth , have a request [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#contact-author)
 [Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated
 
 ## ZKit Can :
@@ -120,6 +120,10 @@ Ransomware can be easily found in \Builded\Ransomware\
 
 If any issue found please open an issue to solve it
  
+# Contact Author
+You can contact me with zkit's official email : zkit-framework@protonmail.com
+Or contact me from my personal email : 000Zer000@protonmail.com 
+
 # Donating 
 
 Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of **Our HEROS** in readme _show your love to hack with supporting it._
