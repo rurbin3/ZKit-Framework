@@ -1,6 +1,6 @@
 def main():
     import os
-    import core.lib._controllers.rootkit_controller as ctrl
+    import core.lib.controllers.rootkit_controller as ctrl
     from core.helper_core import Color, notify
     if os.name == 'nt':
         from colorama import init 
