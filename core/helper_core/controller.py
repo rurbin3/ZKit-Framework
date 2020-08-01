@@ -33,7 +33,7 @@ def main():
             pass
         elif choice == "1":
             ctrl.connect("TCP", port, type_)
-        elif choice == "1":
+        elif choice == "2":
             ctrl.connect("UDP", port, type_)
     else:
         notify("notify",
