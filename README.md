@@ -1,4 +1,4 @@
-# ZKit ![alt tag](https://github.com/000Zer000/ZKit/blob/master/Gifs_Pics/rating.svg)
+# ZKit[![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/test_coverage)](https://codeclimate.com/github/000Zer000/ZKit-Framework/test_coverage)
 
 
 ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
