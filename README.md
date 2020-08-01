@@ -61,7 +61,7 @@ Do you like ZKit ?? If so you can star this project to show your support or [don
     
     $ git clone https://github.com/000Zer000/ZKit-Framework.git
     $ CD ZKit-Framework
-    $ pip install -r linrequirements.txt
+    $ pip install -r requirements.txt
     
 
 > If any problem found . You can share it with me on issue tab .
@@ -77,7 +77,7 @@ Do you like ZKit ?? If so you can star this project to show your support or [don
    
       git clone https://github.com/000Zer000/ZKit-Framework.git
       CD ZKit-Framework
-      pip install -r winrequirements.txt
+      pip install -r requirements.txt
       
   > If any problem found . You can share it with me on issue tab .
 
@@ -94,9 +94,9 @@ Do you like ZKit ?? If so you can star this project to show your support or [don
   Make sure you have pip installed . Then run : 
       cd ZKit-Framework
   on linux :
-      pip install -r linrequirements.txt
+      pip install -r requirements.txt
   on windows 
-      pip install -r winrequirements.txt
+      pip install -r requirements.txt
           
   > If any problem found . You can share it with me on issue tab .
     
