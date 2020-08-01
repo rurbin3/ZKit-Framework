@@ -7,11 +7,11 @@ It can generate ransomware ,  rootkit ( reverse shell and file transfer) , run D
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
-Need update , found an issue or want a feature ? Open an issue and tell me your idea . 
+Need an update , found an issue or want a feature ? Open an issue and tell me your idea . 
 
 Wanna tell me sth , have a request [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated
+[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated . 
 
 ## ZKit Can :
    - Run dos attacks
@@ -19,31 +19,31 @@ Wanna tell me sth , have a request [Now you can contact me](https://github.com/0
    - Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
    - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59 
    
-Do you like ZKit ?? If so you can star this project to show your support or [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking . you can watch this repo for getting notification for new versions . 
+Do you like ZKit ?? If so you can star this project to show your support or [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking and Be in __OUR HEROES__ list in readme with your favorite sentence .see your self on top and you can watch this repo for getting notification for new versions . 
 
 ## ZKit will be able to :
 
-   Compile to diffrent operating systems 
+   - Compile to diffrent operating systems 
 
-   Create ransomware (Next release)
+   - Create ransomware (Next release)
 
-   Run more powerful and more customizable dos attacks
+   - Run more powerful and more customizable dos attacks
 
-   Create and manage Botnets
+   - Create and manage Botnets
 
-   Create more customizable Trojans
+   - Create user payload (write your own payload with zkit features)
 
-   Port Scanning
+   - Port Scanning
 
-   Causing remote bufferoverflow
+   - Causing remote bufferoverflow
 
-   IP and network tools (reverse ip , reverse DNS etc)
+   - IP and network tools (reverse ip , reverse DNS etc)
 
-   Building a GUI (for guys that dont like text based terminals)
+   - Building a GUI (for guys that dont like text based terminals)
 
-   Even working on ios attacks  
+   - Even working on ios attacks  
 
-   Configuration      
+   - Adding Configuration      
  
 ## Installation
 
