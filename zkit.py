@@ -62,10 +62,7 @@ def start():
                 notify(
                     "problem", "Invalid Input {" + "{}".format(choice) + "}")
         except (KeyboardInterrupt, EOFError):
-            try:
                 print("\nPlease Type '000' To Exit ZKit-Framework\n")
                 choice = None
-            except(KeyboardInterrupt, EOFError):
-                pass
-
+                
 start()
