@@ -24,7 +24,7 @@ have an idea ? or have a request ?  [Now you can contact me](https://github.com/
   
 NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
 
-Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/edit/master/README.md#donating ) to show your love to hacking and 
+Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and 
 
 Be in **OUR HEROES** list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting 
 
@@ -93,7 +93,7 @@ Collecting scapy
 
 Open CMD.exe in windows
 
-You can install git from [32bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-32-bit.exe)  [64bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-64-bit.exe)
+You can install git from [32bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-32-bit.exe)   [64bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-64-bit.exe)
 
 pip comes built-in with python .
 
@@ -117,7 +117,7 @@ Collecting scapy
 Do you like ZKit ???
 
 **You Can Help Me keeping everything up with donating me**
-[Head to donate section](https://github.com/000Zer000/ZKit-Framework/README.md#Donating)
+[Head to donate section](https://github.com/000Zer000/ZKit-Framework/README.md#donating)
 
 ### Without Git
 
