@@ -104,7 +104,7 @@ C:\Users\ZKIT> git clone https://github.com/000Zer000/ZKit-Framework.git
 Cloning into 'ZKit-Framework'...
 ...
 C:\Users\ZKIT> CD ZKit-Framework
-C:\Users\ZKIT> pip install -r requirements.txt
+C:\Users\ZKIT\ZKit-Framework> pip install -r requirements.txt
 Collecting colorama
   Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
 Collecting scapy
@@ -161,5 +161,5 @@ Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a 
 
 My bitcoin address is : `1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf`
 
-Any Other Currency's available too . just open an issue and i will send you the address if its available
-If addresses are broken let me know to update them
+Any other currency's available too . just open an issue and i will send you the address if its available
+If addresses are broken let me know to update them . 
