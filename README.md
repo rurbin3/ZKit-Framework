@@ -153,7 +153,8 @@ If any issue found please open an issue to solve it
 
 ## Contact Author
 
-You can contact me from my personal email : 000Zer000@protonmail.com
+You can contact me from my personal email : 000Zer000@pm.me
+And i will reply you back with 000Zer000@protonmail.com
 
 ## Donating
 
