@@ -77,7 +77,7 @@ def notify(status: str, message: str, ending="\n", flush=False):
         '\r' if flush else '', first, message), end=ending)
 
 
-def ask_for(message: str, report: str, default=None, type=str, args=()): # pylint: disable=W0622; # noqa
+def ask_for(message: str, report: str, default=None, type=str, args=None): # pylint: disable=W0622; # noqa
     """
     Asks for anything from users . (uses notify)
 
@@ -85,25 +85,29 @@ def ask_for(message: str, report: str, default=None, type=str, args=()): # pylin
         message (str): message to show the user to ask for details .
         report (str): message to show user that your data is correct .
         default (list): default value and action for that if callable calls it with the arguments
-        else replaces it with default[1] . (Default = ['', '']).
+        else replaces it with default[1] . (Defaults to None).
         type (type): type of data to apply to input. (Default : str)
-        args (tuple): [description]. Defaults to ().
+        args (None): args to pass to fuction. Defaults to None.
 
     Returns:
         (type): the value user entered in type of the "type" argument.
         changed if matched the default to whatever to put in defaults[1]
     """
     notify('question', message, '')
-    if type != list:
-        value = type(input(""))
-    elif type == list:
+    if type == list:
         value = str(input("")).split()
+<<<<<<< HEAD
     default = ['', ''] if default is None else default
+=======
+    else:
+        value = type(input(""))
+
+>>>>>>> 347fd8cbf931367e46eceb0af7f98194c1e382f5
     if value == default[0]:
         if callable(default[1]):
             if args == ("DEFAULT"):
                 value = default[1](value)
-            elif args is None or args == ():
+            elif args is None:
                 value = default[1]()
             else:
                 value = default[1](args)
