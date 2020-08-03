@@ -1,4 +1,7 @@
+'Randoms are all happen here'
 import random
+
+
 def random_str(size=4):
     """
     Generates A Random String with given size.
@@ -12,12 +15,13 @@ def random_str(size=4):
         either lowercase or uppercase like : Aa or bZ or bz or Bz or BZ
         or if you increase the lenght it would be longer
     """
-    return ''.join(random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(size))
+    return ''.join(random.choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+                   for _ in range(size))
+
 
 def random_int(min_: int, max_: int):
-
     """
-    generates a random int in a given range (min_...max_)  
+    generates a random int in a given range (min_...max_)
     max_ and min_ must be integer
 
 
@@ -33,6 +37,7 @@ def random_int(min_: int, max_: int):
     """
     return int(random.choice(range(min_, max_+1)))
 
+
 def random_ip():
     """
     builds a random ip . it may not exist .
@@ -42,5 +47,5 @@ def random_ip():
     example :
         123.233.5.11
     """
-    return  str(random_int(20, 255)) + "." + str(random_int(15, 255)) + "." + \
+    return str(random_int(20, 255)) + "." + str(random_int(15, 255)) + "." + \
         str(random_int(6, 255)) + "." + str(random_int(1, 255))

