@@ -2,7 +2,7 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
-It can generate rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
+It can generate keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
