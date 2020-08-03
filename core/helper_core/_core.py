@@ -94,15 +94,13 @@ def ask_for(message: str, report: str, default=None, type=str, args=None): # pyl
         changed if matched the default to whatever to put in defaults[1]
     """
     notify('question', message, '')
+    default = ['', ''] if default is None else default
     if type == list:
         value = str(input("")).split()
-<<<<<<< HEAD
-    default = ['', ''] if default is None else default
-=======
+
     else:
         value = type(input(""))
 
->>>>>>> 347fd8cbf931367e46eceb0af7f98194c1e382f5
     if value == default[0]:
         if callable(default[1]):
             if args == ("DEFAULT"):
