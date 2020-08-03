@@ -6,6 +6,8 @@ It can generate keylogger, rootkit (reverse shell and file transfer) , run dos a
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
+Special Thanks to LAVAlAnDss . This project's first donor.
+
 Need an update , found an issue or want a feature ? Fell free to open an issue and tell me your idea .
 
 have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
@@ -26,9 +28,16 @@ NOTE : windows payloads have to be compiled to work . but not for linux payloads
 
 Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and 
 
-Be in **OUR HEROES** list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting 
+Be in [OUR HEROES](https://github.com/000Zer000/ZKit-Framework/README.md#our-heroes) list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting 
 
 notification for amazing changes .
+## Our Heros
+
+**LAVAlAnDsS Have Donated** . He/She have donated 0.000577919 XBT (At the time of writing 6.50 USD) . And His/Her Sentence : **We shall try to change the world we cant wait for someone to do this**
+
+
+
+Do you want to be in Our Heros List ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too . 
 
 ## ZKit will be able to
 
