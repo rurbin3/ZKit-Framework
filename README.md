@@ -22,7 +22,11 @@ have an idea ? or have a request ?  [Now you can contact me](https://github.com/
 
 - Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
 
-- Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
+- Build Ransomware TCP / UDP
+
+- Build KeyLogger TCP / UDP
+
+- Payload uses an encryptiOn method and random variable names to fool the AVs . Virus total result is : 0/59
   
 NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
 
@@ -42,8 +46,6 @@ Do you want to be in Our Heros List ? you can [donate](https://github.com/000Zer
 ## ZKit will be able to
 
 - Compile to diffrent operating systems
-
-- Create ransomware (Next release)
 
 - Run more powerful and more customizable dos attacks
 
