@@ -8,7 +8,7 @@ Special Thanks to this project's first watcher and stargazer [Flechablanca19](ht
 
 Special Thanks to LAVAlAnDss . This project's first donor.
 
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and tell me your idea .
+Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing 
 
 have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
