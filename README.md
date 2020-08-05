@@ -2,13 +2,13 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
-It can generate ransomware (beta),keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
+It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
 Special Thanks to LAVAlAnDss . This project's first donor.
 
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing 
+Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .
 
 have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
@@ -22,11 +22,11 @@ have an idea ? or have a request ?  [Now you can contact me](https://github.com/
 
 - Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
 
-- Build Ransomware TCP / UDP
+- Build Ransomware TCP and UDP
 
-- Build KeyLogger TCP / UDP
+- Build KeyLogger TCP and UDP
 
-- Payload uses an encryptiOn method and random variable names to fool the AVs . Virus total result is : 0/59
+- Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
   
 NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
 
