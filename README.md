@@ -2,7 +2,7 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
-It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
+**It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
 
 ## what can it do
 
@@ -20,31 +20,31 @@ It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell an
 
 ## So what do i need for running it 
 
- You dont need much packages . 
+ **You dont need much packages** . 
  
  only :
  
- - scapy used for dosing . 
+ - scapy used for **dosing** . 
  
- - colorama for making texts colorful . (no need for it in linux)
+ - colorama for **making texts colorful** . (*no need for it in linux*)
  
- thats it you are all done . 
+ *thats it you are all done* . 
  
-with these minimium requirements you can buid keylogger,rootkit,file transfer + reverse_shell, ransomware and run a dos attack 
+with these minimium requirements you can buid **keylogger,rootkit,file transfer + reverse_shell, ransomware and run a dos attack** 
 want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
 Special Thanks to LAVAlAnDss . This project's first donor.
 
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .
+*Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
 
-have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
+*have an idea ? or have a request ?*  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated .
+**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated .8*
 
   
-NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
+NOTE : windows payloads have to be **compiled** to work . but **not for linux payloads** . because linux has python built-in .
 
 Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and 
 
