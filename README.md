@@ -6,15 +6,21 @@ ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
 still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
 
+**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
+
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
 Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
 
 ## What can it do
 
+- It can support you for making a malware for a speciefied target . (With User-Payloads)
+
 - Run dos attacks
--
-- Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
+
+- Build rootkit rverse shell
+
+- Build file transfer payload (reverse shell rootkit features included too) both TCP and UDP
 
 - Build Ransomware TCP and UDP
 
@@ -32,10 +38,6 @@ Need an update , found an issue or want a feature ? Fell free to [open an issue 
 
 - colorama for **making texts colorful** . (*no need for it in linux*)
 
-- Users can buid their own payloads too . see zkit-market for donwloading some
-
-- Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
-
 NOTE : windows payloads have to be **compiled** to work . but **not for linux payloads** . because linux has python built-in .
 
  *thats it you are all done* .
@@ -43,15 +45,10 @@ NOTE : windows payloads have to be **compiled** to work . but **not for linux pa
 with these minimium requirements you can buid **keylogger,rootkit,file transfer + reverse_shell, ransomware and run a dos attack**
 want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
 
-Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
-
-Special Thanks to LAVAlAnDss . This project's first donor.
-
 *Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
 
 *have an idea ? or have a request ?*  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
-**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated .8*
 
 Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and
 
