@@ -1,10 +1,4 @@
-"""
-
-The Core Module of ZKit-Framework Contains : some useful methods like a custom create_file
-
-"""
-# Python 2 is supported too
-from __future__ import print_function, division, absolute_import
+"""The Core Module of ZKit-Framework Contains : some useful methods like a custom create_file"""
 import os
 import random
 from base64 import b85encode as be
