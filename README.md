@@ -2,33 +2,56 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
-It can generate keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
+**It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
 
 still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
 
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
-Special Thanks to LAVAlAnDss . This project's first donor.
-
 Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
 
-have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
-
-[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated .
-
-## ZKit Can
+## What can it do
 
 - Run dos attacks
-
-- Build rootkit TCP and UDP
-
+-
 - Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
+
+- Build Ransomware TCP and UDP
+
+- Build KeyLogger TCP and UDP
+
+- Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
+
+## So what do i need for running it
+
+ **You dont need much packages** .
+
+ only :
+
+- scapy used for **dosing** .
+
+- colorama for **making texts colorful** . (*no need for it in linux*)
 
 - Users can buid their own payloads too . see zkit-market for donwloading some
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
-  
-NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
+
+NOTE : windows payloads have to be **compiled** to work . but **not for linux payloads** . because linux has python built-in .
+
+ *thats it you are all done* .
+
+with these minimium requirements you can buid **keylogger,rootkit,file transfer + reverse_shell, ransomware and run a dos attack**
+want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
+
+Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
+
+Special Thanks to LAVAlAnDss . This project's first donor.
+
+*Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
+
+*have an idea ? or have a request ?*  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
+
+**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated .8*
 
 Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and
 
@@ -48,8 +71,6 @@ Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README with
 
 - Compile to diffrent operating systems
 
-- Create ransomware (Next release)
-
 - Run more powerful and more customizable dos attacks
 
 - Create and manage Botnets
@@ -66,13 +87,13 @@ Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README with
 
 - Adding Configuration
 
-## Installation
+## Installing
 
 ### Using Git
 
 Make sure you have git installed .
 Run :
-  
+
 ```batch
 
 $ git --version
@@ -124,7 +145,7 @@ Collecting colorama
   Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
 Collecting scapy
   ...
-  
+
 ```
 
 > If any problem found . You can share it with me on issue tab .
