@@ -4,11 +4,13 @@ ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
 
 It can generate keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime .
 
+still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+
 Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
 
 Special Thanks to LAVAlAnDss . This project's first donor.
 
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and tell me your idea .
+Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
 
 have an idea ? or have a request ?  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
 
@@ -22,22 +24,25 @@ have an idea ? or have a request ?  [Now you can contact me](https://github.com/
 
 - Buid file transfer payload (reverse shell rootkit features included too) both TCP and UDP
 
+- Users can buid their own payloads too . see zkit-market for donwloading some
+
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
   
 NOTE : windows payloads have to be compiled to work . but not for linux payloads . because linux has python built-in .
 
-Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and 
+Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and
 
-Be in [OUR HEROES](https://github.com/000Zer000/ZKit-Framework/README.md#our-heroes) list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting 
+Be in [OUR HEROES](https://github.com/000Zer000/ZKit-Framework/README.md#our-heroes) list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting
 
 notification for amazing changes .
+
 ## Our Heros
 
 **LAVAlAnDsS Have Donated** . He/She have donated 0.000577919 XBT (At the time of writing 6.50 USD) . And His/Her Sentence : **We shall try to change the world we cant wait for someone to do this**
 
+Please becareful i dont have any control on what donors say . its a chance with freedom .
 
-
-Do you want to be in Our Heros List ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too . 
+Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README without any limit ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too .
 
 ## ZKit will be able to
 
@@ -48,8 +53,6 @@ Do you want to be in Our Heros List ? you can [donate](https://github.com/000Zer
 - Run more powerful and more customizable dos attacks
 
 - Create and manage Botnets
-
-- Create user payload (write your own payload with zkit features)
 
 - Port Scanning
 
@@ -69,19 +72,21 @@ Do you want to be in Our Heros List ? you can [donate](https://github.com/000Zer
 
 Make sure you have git installed .
 Run :
-   
+  
 ```batch
 
 $ git --version
 git version ...
 
 ```
+
 If it doesnt return any error you have git installed .
 
 #### On Linux ![Linux](http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/OS-Linux-icon.png)
 
 Open termainal in linux
 Make sure you have pip installed . Then run :
+
 ```batch
 
 $ git clone https://github.com/000Zer000/ZKit-Framework.git
@@ -108,7 +113,8 @@ pip comes built-in with python .
 
 Make sure you have pip installed . Then run :
 
-```
+```batch
+
 C:\Users\ZKIT> git clone https://github.com/000Zer000/ZKit-Framework.git
 Cloning into 'ZKit-Framework'...
 ...
@@ -134,12 +140,14 @@ Easily [download it](https://github.com/000Zer000/ZKit-Framework/archive/master.
 Open CMD.exe on windows or terminal on linux
 Unzip the `ZKit-Framework-master.zip` .
 Make sure you have pip installed . Then run :
-```
+
+```batch
 
 cd ZKit-Framework
 pip install -r requirements.txt
 
 ```
+
 > If any problem found . You can share it with me on issue tab .
 
 ## License
@@ -152,17 +160,14 @@ Using ZKit is easy just `python zkit.py` . there is no argument everything work 
 
 Outputs are saved in `\Builded\` directory .
 
-Rootkit can be easily found in \Builded\Rootkit\
-
-KeyLoggers can be easily found in \Builded\KeyLogger\
-
-Ransomware can be easily found in \Builded\Ransomware\
+Rootkits, Ransomwares, keylogger, User payloads all are in `\builded` directory
 
 If any issue found please open an issue to solve it
 
 ## Contact Author
 
 You can contact me from my personal email : 000Zer000@pm.me
+
 And i will reply you back with 000Zer000@protonmail.com
 
 ## Donating
@@ -172,4 +177,4 @@ Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a 
 My bitcoin address is : `1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf`
 
 Any other currency's available too . just open an issue and i will send you the address if its available
-If addresses are broken let me know to update them . 
+If addresses are broken let me know to update them .

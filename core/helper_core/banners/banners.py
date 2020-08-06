@@ -13,7 +13,7 @@ first = """
                             {--!Github https://github.com/000Zer000/ZKit-Framework!--}
                                    {--{Rootkit}{KeyLogger}{Dos}{Ransomware}--}
                                         {--!@#$%? Coded By Zer0 ?%$#@!--}
-                                           {--!Version        1.4.2!--}
+                                           {--!Version        1.4.5!--}
 """ 
 
 second = """
@@ -36,7 +36,7 @@ second = """
       | -ZZZZZZZZZZZZZ:::::::KK:::::::::::KK:::IIIIII::::::::::TTTT::::::::::- |
       | (____________________________________________________________________) |
       |________________________________________________________________________| 
-      |                        Version        1.4.2                            |
+      |                        Version        1.4.5                            |
        
 """
 helpbanner = """

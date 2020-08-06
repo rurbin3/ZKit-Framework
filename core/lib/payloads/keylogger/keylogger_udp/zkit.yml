@@ -1,0 +1,15 @@
+# About Payload
+name: keylogger_udp
+version: "1.0.0"
+license: Apache Software License 2.0 # Not required
+description: live stream keylogger payload using udp .
+required_version: 1.4.5 # Not required
+homepage: https://gihub.com/000Zer000/ZKit-Framework # Not required
+# About Author
+author: 000Zer000
+profile: https://gihub.com/000Zer000 # Not required
+
+# About Payload
+payloads: [linux, windows]
+level: basic # Not required
+# Basic , basic , BASIC are the same

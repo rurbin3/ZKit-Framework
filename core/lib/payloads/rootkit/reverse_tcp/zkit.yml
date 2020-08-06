@@ -1,0 +1,15 @@
+# About Payload
+name: reverse_tcp
+version: "1.2.0"
+license: Apache Software License 2.0 # Not required
+description: Reverse_Shell payload using tcp .
+required_version: 1.4.5 # Not required
+homepage: https://gihub.com/000Zer000/ZKit-Framework # Not required
+# About Author
+author: 000Zer000
+profile: https://gihub.com/000Zer000 # Not required
+
+# About Payload
+payloads: [linux, windows]
+level: basic # Not required
+# Basic , basic , BASIC are the same
