@@ -13,19 +13,16 @@ from core.helper_core._core import * # NOQA
 ###########################################
 # Rootkit
 ###########################################
-from core.helper_core.rootkit import get_rootkit 
 from core.lib.controllers import rootkit_controller
 
 ###########################################
 # KeyLogger
 ###########################################
-from core.helper_core.keylogger import get_keylogger 
 from core.lib.controllers import keylogger_controller
 
 ###########################################
 # Ransomware
 ###########################################
-from core.helper_core.ransomware import get_ransomware 
 from core.lib.controllers import ransomware_controller
 ###########################################
 # Dos
