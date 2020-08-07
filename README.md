@@ -14,7 +14,7 @@ Need an update , found an issue or want a feature ? Fell free to [open an issue 
 
 ## What can it do
 
-- It can support you for making a malware for a speciefied target . (With User-Payloads)
+- It can support you for making a malware for a speciefied target . (With User-Payloads) In several ways with encrypting your malware and inserting a decode stub for decryption in runtime and some special methods for hidding malware from user in windows and linux
 
 - Run dos attacks
 
