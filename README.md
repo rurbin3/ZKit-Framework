@@ -2,16 +2,6 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
-**It can generate ransomware both available at TCP and UDP ,keylogger TCP and UDP or even Gmail, rootkit (reverse shell and file transfer) both TCP and UDP , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
-
-still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
-
-**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
-
-Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
-
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
-
 ## What can it do
 
 - It can support you for making a malware for a speciefied target . (With User-Payloads) In several ways with encrypting your malware and inserting a decode stub for decryption in runtime and some special methods for hidding malware from user in windows and linux
@@ -24,15 +14,27 @@ Need an update , found an issue or want a feature ? Fell free to [open an issue 
 
 - Build Ransomware TCP and UDP
 
-- Build KeyLogger TCP and UDP
+- Build KeyLogger TCP and UDP or even transfer using email
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
+still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+
+No need for updating it manualy . zkit will check for updates everytime you run it . 
+
+and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
+
+you can repair your framework if you modified it . just run `python updater.py repair`
+
+**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
+
+Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
+
+Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
+
 ## So what do i need for running it
 
- **You dont need much packages** .
-
- only :
+ **You dont need much packages only** :
 
 - scapy used for **dosing** .
 
@@ -42,8 +44,7 @@ NOTE : windows payloads have to be **compiled** to work . but **not for linux pa
 
  *thats it you are all done* .
 
-with these minimium requirements you can buid **keylogger,rootkit,file transfer + reverse_shell, ransomware and run a dos attack**
-want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
+with these minimium requirements you can do these amazing things want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
 
 *Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
 
