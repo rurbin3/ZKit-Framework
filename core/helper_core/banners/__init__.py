@@ -2,5 +2,4 @@
 from core.helper_core.banners import banners
 banner1 = banners.first
 banner2 = banners.second
-helpbanner = banners.helpbanner
 del banners

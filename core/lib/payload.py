@@ -17,15 +17,13 @@ CONFIG_FILE_EX = "zkit.yaml"
 
 REQUIRED_VARS = ("name", "version", "author", "description", "payloads")
 OPTIONAL_VARS = {"license": APACHE_LICENSE, "required_version": version,
-                 "homepage": "", "profile": "", "level": BASIC_LEVEL
+                 "homepage": "", "profile": "", "level": BASIC_LEVEL, 'fields' : ["host", "port"], 'fulldescription' : ""
                  }
 
 ALL_VARS = [*REQUIRED_VARS, *tuple(OPTIONAL_VARS.keys())]
 
-# i know DRY (dont repeat yourself) . but i got no choice the core.helper_core gets ready late . and i cant access it .
+# i know DRY (dont repeat yourself) as a rule . but i got no choice the core.helper_core gets ready late . and i cant access it .
 # its the nature of it . i cant change it . some modules get loaded by others and they cant access uppers
-
-
 class Color:
     'ANSI Color codes'
 
@@ -103,6 +101,11 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
         info = yaml.full_load(f)
         f.close()
         return info
+    def handle_version(self):
+        if self.info['version'] > version:
+            raise PayloadConfigError("This payload requires {} or upper but your zkit-framework version is {}".format(self.info['version'], version)
+                                     , "Please consider upgrading your ZKit-Framework")
+        
 
     def _check_for_odds(self, info):
         for i in info:
@@ -136,12 +139,15 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
     def get_random_strs(self, size=4, count=7):
         return [random_str(size) for _ in range(count)]
 
-    def generate(self, host: str, port: int) -> str:
+    def get_fields(self):
+        return self.info['fields']
+
+    def generate(self, data) -> str:
         "Generates the payload"
         info = self.info
         print("\n{} By {}\nDescription : {}\nplease write '-1' for more info".format(
             self.info['name'], info['author'], info['description']))
-        if str(input("Or press enter :")) == "-1":
+        if str(input("Or press enter : ")) == "-1":
             [print(Color().RandomColor() + "{} : {}".format(key, info[key]
                                                             ) + Color().GetColor('reset'), end="\n\n") for key in info]
 
@@ -158,7 +164,7 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
             choice = list(self.payloads.keys())[0]
 
         strs = self.get_random_strs()
-        payload = self.payloads[choice].Payload(host, port, strs[1:]).create()
+        payload = self.payloads[choice].Payload(*data, strs[1:]).create()
         payload = self._handle_levels(payload, info['level'], choice)
 
         # sweet now payload is generated . lets return the result
@@ -167,4 +173,12 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
     def validate(self, info):
         self._check_for_odds(info)
         self._check_for_requireds(info)
+        _info = OPTIONAL_VARS
+        # Let me explain it a bit . we have a dict of optional vars (OPTIONAL_VARS) with default values . we have checked 
+        # for odds or a required var not defined . so we are sure about data we have . we iter through the user info keys
+        # and overwrite anything that user have defined and what the user havent defined is untouched 
+        for info in self.info:
+            _info[info] = self.info[info]
+        # replacing the dict that will be used with generated one
+        self.info = _info
         return True
