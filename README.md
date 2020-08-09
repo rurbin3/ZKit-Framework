@@ -2,7 +2,7 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
-**It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
+**It can generate ransomware both available at TCP and UDP ,keylogger TCP and UDP or even Gmail, rootkit (reverse shell and file transfer) both TCP and UDP , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
 
 still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
 
