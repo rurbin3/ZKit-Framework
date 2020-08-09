@@ -1,6 +1,6 @@
 # ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/test_coverage)](https://codeclimate.com/github/000Zer000/ZKit-Framework/test_coverage)
 
-ZKit Is A Framework Written In Pure Python For Hacking . HACKING IS COLORFUL .
+ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
 **It can generate ransomware (is still beta) ,keylogger, rootkit (reverse shell and file transfer) , run dos attacks , controllers for having the fun and can fool AVs with random variable names , encryption of malware and decrypting in runtime** .
 
@@ -14,7 +14,7 @@ Need an update , found an issue or want a feature ? Fell free to [open an issue 
 
 ## What can it do
 
-- It can support you for making a malware for a speciefied target . (With User-Payloads)
+- It can support you for making a malware for a speciefied target . (With User-Payloads) In several ways with encrypting your malware and inserting a decode stub for decryption in runtime and some special methods for hidding malware from user in windows and linux
 
 - Run dos attacks
 
