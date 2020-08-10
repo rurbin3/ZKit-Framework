@@ -77,9 +77,9 @@ def list_payloads(payloads=search_for_payloads()):
     col = Color()
     for index, payload in enumerate(payloads.keys()):
         print(random.choice(col.RandomColor()) + "{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))
-                                                                                             * " ") + " >>> " + payloads[payload].replace(path, '')) + col.GetColor('reset'))
-        print("")
-    print("{000} --> Back To Main Menu")
+              * " ") + " >>> " + payloads[payload].replace(path, '')) + col.GetColor('reset'))
+        
+    print("\n{000} --> Back To Main Menu")
 
     return payloads
 
@@ -114,8 +114,7 @@ def notify(status: str, message: str, ending="\n", flush=False):
     Args:
         message (str): message shown for the user
         status (str): status for event . all possibleties are "notify",
-        "problem", "report" and "question"
-        statuses will be converted to lower .
+        "problem", "report" and "question" status will be converted to lower .
         ending (str): used as value for print(message, end = ending)
         flush (bool): to flush the stream or not (default=False)
     """
@@ -132,11 +131,14 @@ def notify(status: str, message: str, ending="\n", flush=False):
             temp = all_stats[stat].split('|')
             first = col.GetColor(temp[0]) + temp[1] + reset
             break
-    print("{}".format(
-        '\r' if flush else '' + first + str(message)), end=ending)
+    if flush:
+        flusher = '\r'
+    else :
+        flusher = ""
+    print(f"{flush}{first}{message}",end=ending)
 
 
-def ask_for(message: str, report: str, default=None, type=str, args=None):  # pylint: disable=W0622; # noqa
+def ask_for(message: str, report: str, default=None, type=str):  # pylint: disable=W0622; # noqa
     """
     Asks for anything from users . (uses notify)
 
@@ -146,14 +148,12 @@ def ask_for(message: str, report: str, default=None, type=str, args=None):  # py
         default (list): default value and action for that if callable calls it with the arguments
         else replaces it with default[1] . (Defaults to None).
         type (type): type of data to apply to input. (Default : str)
-        args (None): args to pass to fuction. Defaults to None.
 
     Returns:
         (type): the value user entered in type of the "type" argument.
         changed if matched the default to whatever to put in defaults[1]
     """
     notify('question', message, '')
-    default = ['', ''] if default is None else default
     if type == list:
         value = str(input("")).split()
 
@@ -162,93 +162,17 @@ def ask_for(message: str, report: str, default=None, type=str, args=None):  # py
 
     if value == default[0]:
         if callable(default[1]):
-            if args == ("DEFAULT"):
-                value = default[1](value)
-            elif args is None:
-                value = default[1]()
-            else:
-                value = default[1](args)
+            value = default[1]()
         else:
             value = default[1]
     notify('report', report.replace('\\|', str(value), 1))
     return value
 
 
-def create_file(file: str):
-    """
-    Creates A New file if a file is on the given path if exists asks for overwrite permission
-    if yes clears file data then closes it if no asks for another file path
-
-    Arguments:
-        file (str) : Path to File to create if exists asks for overwriting permission
-
-    Returns A Path if file created returns file path if not returns asked file path
-    or returns none if got wrong answer at the YES or NO overwrite permission ask
-    """
-    notify("notify", "Creating File...", "")
-    try:
-        _ = open(file, "x").close()
-    except FileExistsError:
-        notify(
-            "problem", "Creating File...Failed \n" +
-            "File Already Exists Confirm Overwrite : (N or Y) ", "", True
-        )
-        choice = str(input("")).upper()
-        if choice == "Y":
-            pass
-        elif choice == "N":
-            file = os.path.dirname(
-                file) + "\\" + str(input("Write Down new file name here : ")) + ".pyw"
-        else:
-            notify("problem", "\nInvalid Input Try Again")
-            while True:
-                notify("File Already Exists Confirm Overwrite : (N or Y) ", "")
-                choice = str(input("")).upper()
-                if choice == "Y":  # pylint: disable=R1723; # noqa
-                    break
-                elif choice == "N":
-                    file = str(
-                        input("Write Down An Other File Name Here : ")) + ".pyw"
-                    break
-                else:
-                    notify("problem", "\nInvalid Input Try Again")
-    else:
-        notify("report",
-               "Creating File...Done ", "\n", True)
-    return file
-
-
-def open_file(path: str):
-    notify("notify", "Opening File To Write Data On It...", "")
-    try:
-        file = open(path, "w+")
-    except Exception:  # pylint: disable=W0703; # noqa
-        notify(
-            "problem", "Opening File To Write Data On It...Failed \n Cannnot Open File", "\n", True)
-        return
-    except PermissionError:
-        notify(
-            "problem", "Opening File To Write Data On It...Failed \n Permission Denied", "\n", True)
-        return
-    else:
-        notify("report",
-               "Opening File To Write Data On It...Done", "\n", True)
-    return file
-
-
-def write_file(file, data: str):
-    if file.writable():
-        file.write(data)
-
-    else:
-        notify('problem', "The file is not writable please try again . "
-               "if the problem presists please report it")
-    file.close()
-
-
 class Generate:
     def __init__(self, root: str):
-        "generates payloads with given root, "
+        "generates payloads with given root"
+        from core.helper_core import create_file,open_file,write_file
         self.root = root
         self.pg = PayloadGenerator(self.root)
         self.get_fields()
@@ -299,17 +223,16 @@ class Generate:
 def encrypt_it(payload, b) -> str:
     notify("notify", "Encrypting Data Before Writing On File...", "")
     payload = be(payload.encode("UTF-8")).decode("UTF-8")
-    notify("report",
-           "Encrypting Data Before Writing On File...Done", "\n", True)
+    print("Done")
     return DECODE_STUB.format(payload, b=b)
 
 
 def print_banner():
     from core.helper_core.banners import banner1, banner2
     "gets a random color and a random banner and prints it"
-    _, red, green, _, blue, magenta, cyan, _, reset = Color().GetAllColors()
+    reset = Color().GetColor('reset')
     random.seed(random.choice(
         [random.randint(1, 9999), random.randint(1, 998)]))
     banner = random.choice([banner1, banner2])
-    color = random.choice([red, green, blue, magenta, cyan])
+    color = Color().RandomColor()
     print(color + banner + reset)

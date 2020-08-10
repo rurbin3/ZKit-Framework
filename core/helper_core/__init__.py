@@ -9,7 +9,10 @@ from core.lib.randoms import * # NOQA
 # Core 
 ###########################################
 from core.helper_core._core import * # NOQA
-
+###########################################
+# File operations
+###########################################
+from core.helper_core.fileop import * # NOQA
 ###########################################
 # Rootkit
 ###########################################

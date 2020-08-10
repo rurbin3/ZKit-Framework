@@ -35,10 +35,22 @@ def list_builtin_payloads_helper(type_):
     Generate(list(payloads.values())[int(index) - 1])
 
 
-def start():
-    "Starts zkit with those beautiful menues"
-    try:
+def list_payloads_helper():
+    payloads = list_payloads()
+    if len(payloads) == 0:
+        print(
+            "No User Payload Was Found . Please Download one from zkit-market or make one using \
+              Zkit-Payload-Template")
+    else:
+        print(
+            "Please Choose One Of Them (Number Of It): ", end="")
+        index = input("")
+        Generate(list(payloads.values())[int(index) - 1])
 
+
+class start():
+    def __init__(self):
+        "Starts zkit with those beautiful menues"
         # Printing A Banner More Coming Soon
         _, red, green, yellow, blue, magenta, cyan, _, reset = Color().GetAllColors()
         init()
@@ -60,6 +72,8 @@ def start():
             + red + "  {6} --> Generate Your User Payloads\n"
             + cyan + "  {000}" + "--> Exit ZKit-Framework\n" + reset
         )
+
+    def main_loop(self):
         while True:
             try:
                 choice = str(input("..> "))
@@ -70,30 +84,25 @@ def start():
                 if choice in PAYLOAD_CHOICES:
                     for key in PAYLOAD_CHOICES:
                         if key == choice:
-                            choice = choice.replace(key, PAYLOAD_CHOICES[key])
+                            choice = choice.replace(
+                                key, PAYLOAD_CHOICES[key])
                             list_builtin_payloads_helper(choice)
 
                 elif choice == "4":
-                    dos.main()
+                    dos.Main()
                 elif choice == "5":
                     ctrler.Main()
                 elif choice == "6":
-                    payloads = list_payloads()
-                    if len(payloads) == 0:
-                        print(
-                            "No User Payload Was Found . Please Download one from zkit-market or make one using zkit-payload-template")
-                    else:
-                        print("Please Choose One Of Them (Number Of It): ", end="")
-                    index = input("")
-                    Generate(list(payloads.values())[int(index) - 1])
+                    list_payloads_helper()
                 elif choice is not None:
                     notify(
                         "problem", "Invalid Input {" + "{}".format(choice) + "}")
-            except (KeyboardInterrupt, EOFError):
-                print("\nPlease Type '000' To Exit ZKit-Framework\n")
-                choice = None
-    except BaseException as e:
-        crash_handler(e)
 
 
-start()
+try:
+    Start()
+except BaseException as e:
+    crash_handler(e)
+except (KeyboardInterrupt, EOFError):
+    print("\nPlease Type '000' To Exit ZKit-Framework\n")
+    choice = None
