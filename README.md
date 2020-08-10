@@ -2,6 +2,12 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
+No need for updating it manualy . zkit will check for updates everytime you run it . 
+
+and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
+
+you can repair your framework if you modified it . just run `python updater.py repair`
+
 ## What can it do
 
 - It can support you for making a malware for a speciefied target . (With User-Payloads) In several ways with encrypting your malware and inserting a decode stub for decryption in runtime and some special methods for hidding malware from user in windows and linux
@@ -19,12 +25,6 @@ ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
 still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
-
-No need for updating it manualy . zkit will check for updates everytime you run it . 
-
-and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
-
-you can repair your framework if you modified it . just run `python updater.py repair`
 
 **[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
 
