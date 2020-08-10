@@ -5,7 +5,7 @@ import sys
 import shutil
 LATEST_VERSION_URL = "https://github.com/000Zer000/ZKit-Framework/releases/latest"
 DOWNLOAD_URL = "https://codeload.github.com/000Zer000/ZKit-Framework/zip/{version}"
-PATH = os.abort
+PATH = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
 
 class API:
     def __init__(self):
