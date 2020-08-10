@@ -58,7 +58,7 @@ class Color:
         to_remove = ['grey', 'reset', 'black']
         for r in to_remove:
             colors.remove(gc(r))
-        return random.choice([colors])
+        return random.choice(colors)
 
 
 def search_for_payloads(where="\\User\\Payloads\\") -> dict:
