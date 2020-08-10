@@ -101,7 +101,7 @@ class Start:
 
 
 try:
-    Start()
+    Start().mainloop() #issue #6 missing running the main_loop
 except BaseException as e:
     crash_handler(e)
 except (KeyboardInterrupt, EOFError):
