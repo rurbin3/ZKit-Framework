@@ -1,4 +1,4 @@
-# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/test_coverage)](https://codeclimate.com/github/000Zer000/ZKit-Framework/test_coverage)
+# ZKit-Framework [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) ![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework) [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/test_coverage)](https://codeclimate.com/github/000Zer000/ZKit-Framework/test_coverage) 
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
