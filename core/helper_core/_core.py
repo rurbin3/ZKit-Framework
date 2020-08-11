@@ -134,7 +134,7 @@ def notify(status: str, message: str, ending="\n", flush=False):
         flusher = '\r'
     else :
         flusher = ""
-    print(f"{flush}{first}{message}",end=ending)
+    print(f"{flusher}{first}{message}",end=ending)
 
 
 def ask_for(message: str, report: str, default=None, type=str):  # pylint: disable=W0622; # noqa
