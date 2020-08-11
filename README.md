@@ -101,44 +101,20 @@ git version ...
 
 If it doesnt return any error you have git installed .
 
-#### On Linux ![Linux](http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/OS-Linux-icon.png)
+Open CMD.exe on windows or terminal on Linux/Unix
 
-Open termainal in linux
-Make sure you have pip installed . Then run :
-
-```batch
-
-$ git clone https://github.com/000Zer000/ZKit-Framework.git
-Cloning into 'ZKit-Framework'...
-...
-$ CD ZKit-Framework
-$ pip install -r requirements.txt
-Collecting colorama
-  Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
-Collecting scapy
-  ...
-
-```
-
-> If any problem found . You can share it with me on issue tab .
-
-#### On Windows ![Windows](https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/32/Folders-OS-Windows-8-Metro-icon.png)
-
-Open CMD.exe in windows
-
-You can install git from [32bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-32-bit.exe)   [64bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-64-bit.exe)
-
-pip comes built-in with python .
+You can install git from [latest version of git official repo on github](https://github.com/git-for-windows/git/releases/latest)
 
 Make sure you have pip installed . Then run :
 
 ```batch
 
-C:\Users\ZKIT> git clone https://github.com/000Zer000/ZKit-Framework.git
+# git clone https://github.com/000Zer000/ZKit-Framework.git
 Cloning into 'ZKit-Framework'...
 ...
-C:\Users\ZKIT> CD ZKit-Framework
-C:\Users\ZKIT\ZKit-Framework> pip install -r requirements.txt
+# CD ZKit-Framework
+
+# pip install -r requirements.txt
 Collecting colorama
   Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
 Collecting scapy
