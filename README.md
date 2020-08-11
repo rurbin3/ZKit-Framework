@@ -2,7 +2,7 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
-No need for updating it manualy . zkit will check for updates everytime you run it . 
+No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
 and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
 
@@ -24,7 +24,9 @@ you can repair your framework if you modified it . just run `python updater.py r
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
-You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
+
+nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
 
 *Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
 
@@ -61,7 +63,7 @@ notification for amazing changes .
 
 **LAVAlAnDsS Have Donated** . He/She have donated 0.000577919 XBT (At the time of writing 6.50 USD) . And His/Her Sentence : **We shall try to change the world we cant wait for someone to do this**
 
-Please becareful i dont have any control on what donors say . its a chance with freedom .
+Please be careful i dont have any control on what donors say . its a chance with freedom .
 
 Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README without any limit ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too .
 
@@ -87,19 +89,11 @@ Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README with
 
 ## Installing
 
+Now you know what can this powerful framework do . Its time for installization . 
+
 ### Using Git
 
 Make sure you have git installed .
-Run :
-
-```batch
-
-$ git --version
-git version ...
-
-```
-
-If it doesnt return any error you have git installed .
 
 Open CMD.exe on windows or terminal on Linux/Unix
 
