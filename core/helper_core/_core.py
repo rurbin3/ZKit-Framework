@@ -76,11 +76,10 @@ def list_payloads(payloads=search_for_payloads()):
     "You can get the result form search_user_payloads or i will do it"
     col = Color()
     for index, payload in enumerate(payloads.keys()):
-        print(random.choice(col.RandomColor()) + "{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))
+        print(col.RandomColor() + "{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload)) # an ouudated code was fixed 
               * " ") + " >>> " + payloads[payload].replace(path, '')) + col.GetColor('reset'))
         
     print("\n{000} --> Back To Main Menu")
-
     return payloads
 
 
