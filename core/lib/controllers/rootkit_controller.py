@@ -67,4 +67,4 @@ class Controller:
 
 
 def connect(conn_type: str, port: int, type_: str):
-    Controller().connect(self.conn_type, port, type_)
+    Controller(conn_type, port, type_)
