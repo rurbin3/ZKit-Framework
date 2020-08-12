@@ -9,7 +9,7 @@ if os.name == 'nt':
 from core.helper_core import notify
 
 class Controller:
-    def __init__(self, conn_type, port, type_):
+    def __init__(self, conn_type, port):
         
         notify("notify","Making Connection", "")
         
@@ -40,5 +40,5 @@ class Controller:
         elif Connection_Type == "UDP":
             self.connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-def connect(connection_type: str, port: int, type_: str):
-    Controller().connect(connection_type, port, type_)
+def connect(connection_type: str, port: int):
+    Controller(connection_type, port)
