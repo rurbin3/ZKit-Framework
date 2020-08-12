@@ -103,7 +103,7 @@ class Start:
 
 starter = Start()
 try:
-    Start().mainloop() #issue #6 missing running the main_loop
+    Start().main_loop()
 except BaseException as e:
     crash_handler(e)
 
