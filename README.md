@@ -1,8 +1,8 @@
-# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/test_coverage)](https://codeclimate.com/github/000Zer000/ZKit-Framework/test_coverage)
+# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) ![Repo size](https://img.shields.io/github/repo-size/000Zer000/ZKit-Framework) [![Open Issues](https://img.shields.io/github/issues/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/issues) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commit/master)
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
-No need for updating it manualy . zkit will check for updates everytime you run it . 
+No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
 and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
 
@@ -24,7 +24,9 @@ you can repair your framework if you modified it . just run `python updater.py r
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
-You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
+
+nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
 
 *Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
 
@@ -61,7 +63,7 @@ notification for amazing changes .
 
 **LAVAlAnDsS Have Donated** . He/She have donated 0.000577919 XBT (At the time of writing 6.50 USD) . And His/Her Sentence : **We shall try to change the world we cant wait for someone to do this**
 
-Please becareful i dont have any control on what donors say . its a chance with freedom .
+Please be careful i dont have any control on what donors say . its a chance with freedom .
 
 Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README without any limit ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too .
 
@@ -87,58 +89,26 @@ Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README with
 
 ## Installing
 
+Now you know what can this powerful framework do . Its time for installization . 
+
 ### Using Git
 
 Make sure you have git installed .
-Run :
 
-```batch
+Open CMD.exe on windows or terminal on Linux/Unix
 
-$ git --version
-git version ...
-
-```
-
-If it doesnt return any error you have git installed .
-
-#### On Linux ![Linux](http://icons.iconarchive.com/icons/dakirby309/simply-styled/32/OS-Linux-icon.png)
-
-Open termainal in linux
-Make sure you have pip installed . Then run :
-
-```batch
-
-$ git clone https://github.com/000Zer000/ZKit-Framework.git
-Cloning into 'ZKit-Framework'...
-...
-$ CD ZKit-Framework
-$ pip install -r requirements.txt
-Collecting colorama
-  Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
-Collecting scapy
-  ...
-
-```
-
-> If any problem found . You can share it with me on issue tab .
-
-#### On Windows ![Windows](https://icons.iconarchive.com/icons/dakirby309/windows-8-metro/32/Folders-OS-Windows-8-Metro-icon.png)
-
-Open CMD.exe in windows
-
-You can install git from [32bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-32-bit.exe)   [64bit](https://github.com/git-for-windows/git/releases/download/v2.26.2.windows.1/Git-2.26.2-64-bit.exe)
-
-pip comes built-in with python .
+You can install git from [latest version of git official repo on github](https://github.com/git-for-windows/git/releases/latest)
 
 Make sure you have pip installed . Then run :
 
 ```batch
 
-C:\Users\ZKIT> git clone https://github.com/000Zer000/ZKit-Framework.git
+# git clone https://github.com/000Zer000/ZKit-Framework.git
 Cloning into 'ZKit-Framework'...
 ...
-C:\Users\ZKIT> CD ZKit-Framework
-C:\Users\ZKIT\ZKit-Framework> pip install -r requirements.txt
+# CD ZKit-Framework
+
+# pip install -r requirements.txt
 Collecting colorama
   Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
 Collecting scapy
@@ -179,7 +149,7 @@ Using ZKit is easy just `python zkit.py` . there is no argument everything work 
 
 Outputs are saved in `\Builded\` directory .
 
-Rootkits, Ransomwares, keylogger, User payloads all are in `\builded` directory
+Rootkits, Ransomwares, keylogger, User payloads all are in `\builded\` directory
 
 If any issue found please open an issue to solve it
 

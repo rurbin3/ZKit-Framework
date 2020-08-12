@@ -103,9 +103,9 @@ class Start:
 
 starter = Start()
 try:
-    starter.main_loop()
-except (KeyboardInterrupt, EOFError):
-    print("\nPlease Type '000' To Exit ZKit-Framework\n")
-    starter.main_loop()
+    Start().mainloop() #issue #6 missing running the main_loop
 except BaseException as e:
     crash_handler(e)
+
+except (KeyboardInterrupt, EOFError):
+    print("\nPlease Type '000' To Exit ZKit-Framework\n")
