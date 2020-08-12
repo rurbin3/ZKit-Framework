@@ -4,6 +4,8 @@ class UserError(Exception):
 class BaseError(BaseException):
     " "
     
+class InteractError(BaseError):
+    pass
 class PayloadConfigError(UserError):
     "Raised When A Wrong variable is in zkit.yml for user payload"
       

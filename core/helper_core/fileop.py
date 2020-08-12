@@ -12,13 +12,15 @@ def create_file(file: str):
     Returns A Path if file created returns file path if not returns asked file path
     or returns none if got wrong answer at the YES or NO overwrite permission ask
     """
-    notify("notify", "Creating File...", "")
-    try:
+    def _inner_open(file):
+        notify("notify", "Creating File...", "")
         _ = open(file, "x").close()
+    try:
+        _inner_open(file)
     except FileExistsError:
         notify(
             "problem", "Creating File...Failed \n" +
-            "File Already Exists Confirm Overwrite : (N or Y) ", "", True
+            "File Already Exists Confirm Overwrite (N or Y) :  ", "", True
         )
         while True:
             choice = str(input("")).upper()

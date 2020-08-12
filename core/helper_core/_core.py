@@ -1,10 +1,13 @@
 """The Core Module of ZKit-Framework Contains : some useful methods like a custom create_file"""
 import os
 import random
-from base64 import b85encode as be
 import socket as s
-from core.lib.payload import PayloadGenerator
+from base64 import b85encode as be
 from datetime import datetime as dt
+
+from core.helper_core.coloring import Color, ask_for, notify
+from core.lib.payload import PayloadGenerator
+
 path = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
 
 DECODE_STUB = 'from base64 import b85decode as {b}\nvalue ="""{}"""''\nexec({b}(value))'
@@ -28,22 +31,6 @@ def init():
         os.system("clear")
 
 
-class Color:
-    'ANSI Color codes'
-
-    def __init__(self):
-        self.colors = {
-            "black": "\033[30m",
-            "red": "\033[31m",
-            "green": "\033[32m",
-            "yellow": "\033[33m",
-            "blue": "\033[34m",
-            "magenta": "\033[35m",
-            "cyan": "\033[36m",
-            "grey": "\033[37m",
-            "reset": "\033[0m",
-        }
-
     def GetColor(self, colorname):  # pylint: disable=C0103; # noqa
         'Gets a color from colors dict case insensetive'
         return self.colors.get(colorname.lower())
@@ -53,11 +40,12 @@ class Color:
         return tuple(self.colors.values())
 
     def RandomColor(self):
-        colors = [*self.GetAllColors()]
+        colors = list(self.GetAllColors())
         gc = self.GetColor
         to_remove = ['grey', 'reset', 'black']
         for r in to_remove:
             colors.remove(gc(r))
+        random.choice(colors)
         return random.choice(colors)
 
 
@@ -74,11 +62,11 @@ def search_for_payloads(where="\\User\\Payloads\\") -> dict:
 
 def list_payloads(payloads=search_for_payloads()):
     "You can get the result form search_user_payloads or i will do it"
-    col = Color()
+    col = Color
     for index, payload in enumerate(payloads.keys()):
-        print(random.choice(col.RandomColor()) + "{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))
-              * " ") + " >>> " + payloads[payload].replace(path, '')) + col.GetColor('reset'))
-        
+        print(col().RandomColor() + "\n{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))  # Bug fix
+                                                                                  * " ") + " >>> " + payloads[payload].replace(path, '')) + col().GetColor('reset'))
+
     print("\n{000} --> Back To Main Menu")
 
     return payloads
@@ -107,72 +95,10 @@ def crash_handler(exception: BaseException):
         print("Ignoring")
 
 
-def notify(status: str, message: str, ending="\n", flush=False):
-    """
-    notifies the user with given parameters . you can customize it very well
-
-    Args:
-        message (str): message shown for the user
-        status (str): status for event . all possibleties are "notify",
-        "problem", "report" and "question" status will be converted to lower .
-        ending (str): used as value for print(message, end = ending)
-        flush (bool): to flush the stream or not (default=False)
-    """
-    col = Color()
-    reset = col.GetColor('reset')
-    status = status.lower()
-    all_stats = {'report': 'blue|[ REPORT ]',
-                 'notify': 'green|[ NOTIFY ]',
-                 'problem': 'red|[CRITICAL]',
-                 'question': 'yellow|[QUESTION]',
-                 }
-    for stat in all_stats:
-        if stat == status:
-            temp = all_stats[stat].split('|')
-            first = col.GetColor(temp[0]) + temp[1] + reset
-            break
-    if flush:
-        flusher = '\r'
-    else :
-        flusher = ""
-    print(f"{flush}{first}{message}",end=ending)
-
-
-def ask_for(message: str, report: str, default=None, type=str):  # pylint: disable=W0622; # noqa
-    """
-    Asks for anything from users . (uses notify)
-
-    Args:
-        message (str): message to show the user to ask for details .
-        report (str): message to show user that your data is correct .
-        default (list): default value and action for that if callable calls it with the arguments
-        else replaces it with default[1] . (Defaults to None).
-        type (type): type of data to apply to input. (Default : str)
-
-    Returns:
-        (type): the value user entered in type of the "type" argument.
-        changed if matched the default to whatever to put in defaults[1]
-    """
-    notify('question', message, '')
-    if type == list:
-        value = str(input("")).split()
-
-    else:
-        value = type(input(""))
-
-    if value == default[0]:
-        if callable(default[1]):
-            value = default[1]()
-        else:
-            value = default[1]
-    notify('report', report.replace('\\|', str(value), 1))
-    return value
-
-
 class Generate:
     def __init__(self, root: str):
         "generates payloads with given root"
-        from core.helper_core import create_file,open_file,write_file
+        from core.helper_core import create_file, open_file, write_file
         self.root = root
         self.pg = PayloadGenerator(self.root)
         self.get_fields()
@@ -214,7 +140,7 @@ class Generate:
         print(*self.args)
 
     def get_payload(self) -> str:
-        self.payload = self.pg.generate(self.args)
+        self.payload = self.pg.interact(self.args)
 
     def get_fields(self):
         self.fields = self.pg.get_fields()

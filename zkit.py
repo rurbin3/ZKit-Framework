@@ -3,19 +3,17 @@
 # This Work Is Licensed Under Apache Software License 2.0
 # More Can Be Found In The LICENSE File.
 __author__ = "Zer0"
-__version__ = "1.4.6"
+__version__ = "1.4.7"
 __license__ = "Apache Software License 2.0"
 __status__ = "Production"
 import os
 import sys
-from datetime import datetime as dt
-
-from updater import API as updater
-
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 try:
     # Doing some imports
     from core.helper_core import notify, Color, Generate, dos, \
-        ctrler, init, print_banner, list_builtin_payloads, search_for_payloads, crash_handler
+        ctrler, init, print_banner, list_builtin_payloads, search_for_payloads, crash_handler, list_payloads
+    from updater import API as updater
 except (ImportError, ModuleNotFoundError) as e:
     # Ops ! Sth is missing
 
@@ -37,8 +35,8 @@ def list_payloads_helper():
     payloads = list_payloads()
     if len(payloads) == 0:
         print(
-            "No User Payload Was Found . Please Download one from zkit-market or make one using \
-              Zkit-Payload-Template")
+            "No User Payload Was Found . Please Download one from zkit-market or make one using" +
+            "Zkit-Payload-Template")
     else:
         print(
             "Please Choose One Of Them (Number Of It): ", end="")
@@ -74,6 +72,25 @@ class Start:
             + cyan + "  {000}" + "--> Exit ZKit-Framework\n" + reset
         )
 
+    def _execute_payload_related(self, choice):
+        choice = choice.replace(
+            choice, PAYLOAD_CHOICES[choice])
+        list_builtin_payloads_helper(choice)
+
+    def execute(self, choice):
+        if choice in PAYLOAD_CHOICES:
+            self._execute_payload_related(choice)
+
+        elif choice == "4":
+            dos.Main()
+        elif choice == "5":
+            ctrler.Main()
+        elif choice == "6":
+            list_payloads_helper()
+        elif choice is not None:
+            notify(
+                "problem", "Invalid Input {" + "{}".format(choice) + "}")
+
     def main_loop(self):
         while True:
 
@@ -81,28 +98,14 @@ class Start:
 
             if choice == "000":
                 break
-
-            if choice in PAYLOAD_CHOICES:
-                for key in PAYLOAD_CHOICES:
-                    if key == choice:
-                        choice = choice.replace(
-                            key, PAYLOAD_CHOICES[key])
-                        list_builtin_payloads_helper(choice)
-
-            elif choice == "4":
-                dos.Main()
-            elif choice == "5":
-                ctrler.Main()
-            elif choice == "6":
-                list_payloads_helper()
-            elif choice is not None:
-                notify(
-                    "problem", "Invalid Input {" + "{}".format(choice) + "}")
+            self.execute(choice)
 
 
+starter = Start()
 try:
-    Start()
-except BaseException as e:
-    crash_handler(e)
+    starter.main_loop()
 except (KeyboardInterrupt, EOFError):
     print("\nPlease Type '000' To Exit ZKit-Framework\n")
+    starter.main_loop()
+except BaseException as e:
+    crash_handler(e)

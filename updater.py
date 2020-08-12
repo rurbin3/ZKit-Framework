@@ -18,14 +18,17 @@ class API:
             return resp.history[0].headers['location'].split("/")[-1]
         except:  # noqa
             print("Failed")
-            raise SystemExit("There was an issue getting latest release. please try again later"
-                             "if the problem persists . please contact author on Github")
+        else :
+            print("Done")
 
     def check_for_updates(self):
         print("Checking for updates...", end="")
         self.latest_release = self.get_latest_release()
-        print("Done")
-        if str(self.latest_release) > str(__version__):
+        if self.latest_release is None:
+            # Using ZKit Offline
+            print("Using ZKit-Framework Offline . Ignoring Updater")
+
+        elif str(self.latest_release) > str(__version__):
             print("you are using zkit-framework version {} however zkit-framework {} is available for download.\
                   please update your framework with command : \
                   python updater.py update".format(self.latest_release, __version__))

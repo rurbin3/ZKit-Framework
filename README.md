@@ -24,7 +24,12 @@ you can repair your framework if you modified it . just run `python updater.py r
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
-still want other payloads ? take a look at [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork ZKit-Payload-Template and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+
+*Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
+
+*have an idea ? or have a request ?* [Now you can contact me ](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
+Please note that i only use [email](000Zer000@protonmail.com) and only available in [github](https://github.com/000Zer000), [twitter](https://twitter.com/__000Zer000__) . so other accounts is not me . 
 
 **[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
 
@@ -45,11 +50,6 @@ NOTE : windows payloads have to be **compiled** to work . but **not for linux pa
  *thats it you are all done* .
 
 with these minimium requirements you can do these amazing things want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
-
-*Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
-
-*have an idea ? or have a request ?*  [Now you can contact me](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
-
 
 Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and
 
@@ -188,6 +188,9 @@ If any issue found please open an issue to solve it
 You can contact me from my personal email : 000Zer000@pm.me
 
 And i will reply you back with 000Zer000@protonmail.com
+
+Or you can contact me from twitter . [000Zer000 On Twitter](https://twitter.com/__000Zer000__)
+
 
 ## Donating
 

