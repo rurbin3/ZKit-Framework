@@ -40,4 +40,4 @@ class Controller:
             self.connection = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 def connect(connection_type: str, port: int):
-    Controller().connect(connection_type, port, type_)
+    Controller(connection_type, port)
