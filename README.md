@@ -2,15 +2,16 @@
 
 ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
-No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
-
-and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
-
-you can repair your framework if you modified it . just run `python updater.py repair`
-
 ## What can it do
 
-- It can support you for making a malware for a speciefied target . (With User-Payloads) In several ways with encrypting your malware and inserting a decode stub for decryption in runtime and some special methods for hidding malware from user in windows and linux
+- It can support you for making a malware for a speciefied target . (With User-Payloads) 
+  In several ways with encrypting your malware 
+  and inserting a decode stub for decryption in runtime and some 
+  special methods for hidding malware from user in windows and linux 
+ 
+- Payloads available in ZKit-Market so you can install it
+
+- Building you own payload and publishing it. [Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload)
 
 - Run dos attacks
 
@@ -26,12 +27,11 @@ you can repair your framework if you modified it . just run `python updater.py r
 
 You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
 
-nothing there you might like ? build you own and fork [ZKit-Payload-Template](https://github.com/000Zer000/ZKit-Payload-Template) and build your payload and see your payload listed in the market . [Need Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload) !? Sure . Everything that is new needs tutorial.
+No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
-*Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose)and please tell me your idea . please write data logs in Errors.log in your issue tab . really great information is there . that helps fixing .*
+and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
 
-*have an idea ? or have a request ?* [Now you can contact me ](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#contact-author)
-Please note that i only use [email](000Zer000@protonmail.com) and only available in [github](https://github.com/000Zer000), [twitter](https://twitter.com/__000Zer000__) . so other accounts is not me . 
+you can repair your framework if you modified it or broken by accident . just run `python updater.py repair`
 
 **[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
 
@@ -66,26 +66,6 @@ notification for amazing changes .
 Please be careful i dont have any control on what donors say . its a chance with freedom .
 
 Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README without any limit ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too .
-
-## ZKit will be able to
-
-- Compile to diffrent operating systems
-
-- Run more powerful and more customizable dos attacks
-
-- Create and manage Botnets
-
-- Port Scanning
-
-- Causing remote bufferoverflow
-
-- IP and network tools (reverse ip, reverse DNS, etc)
-
-- Building a GUI (for guys that dont like command-line tools)
-
-- Even working on ios attacks
-
-- Adding Configuration
 
 ## Installing
 
