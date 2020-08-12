@@ -103,7 +103,7 @@ class Start:
 
 starter = Start()
 try:
-    Start().main_loop()
+    starter.main_loop()
 except BaseException as e:
     crash_handler(e)
 
