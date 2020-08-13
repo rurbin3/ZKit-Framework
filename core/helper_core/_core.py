@@ -7,8 +7,10 @@ from datetime import datetime as dt
 
 from core.helper_core.coloring import Color, ask_for, notify
 from core.lib.payload import PayloadGenerator
-
-path = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
+if os.name == "nt":
+    path = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
+else :
+    path = '/'.join(__file__.replace("\\", '/').split("/")[:-3])
 
 DECODE_STUB = 'from base64 import b85decode as {b}\nvalue ="""{}"""''\nexec({b}(value))'
 ASK_FOR_ASKING_STRING = "Payload is asking for a(n) '{}'. And is required : "
@@ -17,10 +19,17 @@ ASK_FOR_REPORT_STRING = "Passing \\| to payload as {}"
 
 def init():
     'inits the zkit . without you will get several errors'
-    pathslist = [path + "\\Builded\\", path + '\\Loot\\',
-                 path + "\\User\\Payloads\\"
+    if os.name == "nt":
+        pathslist = [path + "\\Builded\\", path + '\\Loot\\',
+                     path + "\\User\\Payloads\\"
 
-                 ]
+                     ]
+    else :
+        pathslist = [path + "/Builded/", path + '/Loot/',
+                     path + "/User/Payloads/"
+
+                     ]
+        
     for _path in pathslist:
         os.popen("mkdir \"{}\"".format(_path)).close()
     os.popen('echo. > {}'.format(path + "\\Errors.log"))
@@ -52,7 +61,13 @@ def init():
 def search_for_payloads(where="\\User\\Payloads\\") -> dict:
     "searches \\User\\Payloads\\ for payloads to install or the place you say"
     payloads = {}
-    for r, d, _ in os.walk(path + where):
+    place = path + where
+    if os.name == "nt":
+        place = place.replace("/", "\\")
+    else :
+        place = place.replace("\\", "/")
+        
+    for r, d, _ in os.walk(place):
         for payload in d:
 
             payloads[payload] = r + payload
