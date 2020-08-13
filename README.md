@@ -7,7 +7,7 @@ ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 - It can support you for making a malware for a speciefied target . (With User-Payloads) 
   In several ways with encrypting your malware 
   and inserting a decode stub for decryption in runtime and some 
-  special methods for hidding malware from user in windows and linux 
+  special methods for hidding malware from user in windows and linux
  
 - Payloads available in ZKit-Market so you can install it
 
@@ -132,6 +132,11 @@ Outputs are saved in `\Builded\` directory .
 Rootkits, Ransomwares, keylogger, User payloads all are in `\builded\` directory
 
 If any issue found please open an issue to solve it
+
+
+## Disclamer 
+
+ZKit is a framework  for helping ethical hacking education  It should not be used for any illegal or malicous purposes. The author (000Zer000) have no responsibility for any damages that may be caused by the payloads generated with ZKit-Framework.
 
 ## Contact Author
 
