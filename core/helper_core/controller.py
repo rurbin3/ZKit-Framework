@@ -10,6 +10,8 @@ if os.name == 'nt':
     from colorama import init  # pylint: disable=C0415; # noqa
     init(convert=True)
 
+conns = {'1': 'TCP', '2': 'UDP'}
+
 
 class Main:
     "Talks to controllers . gets info from user and lets user have fun"
@@ -47,8 +49,6 @@ class Main:
               + self.blue + "{000}--> Back To Main Menu\n" + self.reset)
 
         choice = str(input("..> "))
-        if choice == "000":
-            return EOFError
 
         if choice in ("1", "2", "3", "4"):
             print("At The Time Of Creation Of Payload . ZKit Asked About A Connection Type "
@@ -56,10 +56,8 @@ class Main:
                   + self.red + "{1}--> TCP\n"
                   + self.green + "{2}--> UDP\n" + self.reset)
             conn = str(input("..> "))
-            if conn == "1":
-                conn = "TCP"
-            elif conn == "2":
-                conn = "UDP"
+            conn = conns[conn]
+
             notify(
                 "question", "what port did you used ? left empty to use default (1534)")
             port = int(input("..> "))
@@ -67,9 +65,9 @@ class Main:
                 port = 1534
             type_ = self._get_type(choice)
             return (conn, port, type_)
+
         notify("notify",
                "Invalid Input {" + "{}".format(choice) + "}")
-        return ("Error", "Error", "Error")
 
     def control(self, type_, conn, port):
         if type_ == "keylogger":

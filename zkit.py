@@ -3,7 +3,7 @@
 # This Work Is Licensed Under Apache Software License 2.0
 # More Can Be Found In The LICENSE File.
 __author__ = "Zer0"
-__version__ = "1.4.7"
+__version__ = "1.4.8"
 __license__ = "Apache Software License 2.0"
 __status__ = "Production"
 import os
@@ -13,6 +13,7 @@ try:
     # Doing some imports
     from core.helper_core import notify, Color, Generate, dos, \
         ctrler, init, print_banner, list_builtin_payloads, search_for_payloads, crash_handler, list_payloads
+
     from updater import API as updater
 except (ImportError, ModuleNotFoundError) as e:
     # Ops ! Sth is missing

@@ -7,66 +7,43 @@ from datetime import datetime as dt
 
 from core.helper_core.coloring import Color, ask_for, notify
 from core.lib.payload import PayloadGenerator
-if os.name == "nt":
-    path = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
-else :
-    path = '/'.join(__file__.replace("\\", '/').split("/")[:-3])
 
-DECODE_STUB = 'from base64 import b85decode as {b}\nvalue ="""{}"""''\nexec({b}(value))'
+path = '/'.join(__file__.replace("\\", '/').split("/")[:-3])
+
+DECODE_STUB_BASE85 = 'from base64 import b85decode as {b}\nvalue ="""{}"""\nexec({b}(value))'
+DECODE_STUB_ROT42 = 'value ="""{}"""\nexec(''.join(chr((ord({b}) - 42)for {b} in value)))'
 ASK_FOR_ASKING_STRING = "Payload is asking for a(n) '{}'. And is required : "
-ASK_FOR_REPORT_STRING = "Passing \\| to payload as {}"
+ASK_FOR_REPORT_STRING = "Passing /| to payload as {}"
+
+ENCODING_CHOICES = {'1': 'BASE85', '2': 'ROT42'}
 
 
 def init():
     'inits the zkit . without you will get several errors'
     if os.name == "nt":
-        pathslist = [path + "\\Builded\\", path + '\\Loot\\',
-                     path + "\\User\\Payloads\\"
-
-                     ]
-    else :
         pathslist = [path + "/Builded/", path + '/Loot/',
                      path + "/User/Payloads/"
 
                      ]
-        
     for _path in pathslist:
         os.popen("mkdir \"{}\"".format(_path)).close()
-    os.popen('echo. > {}'.format(path + "\\Errors.log"))
-
+    os.popen('echo. > {}'.format(path + "/Errors.log"))
+    
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
 
 
-    def GetColor(self, colorname):  # pylint: disable=C0103; # noqa
-        'Gets a color from colors dict case insensetive'
-        return self.colors.get(colorname.lower())
-
-    def GetAllColors(self):  # pylint: disable=C0103; # noqa
-        "returns all colors and reset as a tuple"
-        return tuple(self.colors.values())
-
-    def RandomColor(self):
-        colors = list(self.GetAllColors())
-        gc = self.GetColor
-        to_remove = ['grey', 'reset', 'black']
-        for r in to_remove:
-            colors.remove(gc(r))
-        random.choice(colors)
-        return random.choice(colors)
-
-
-def search_for_payloads(where="\\User\\Payloads\\") -> dict:
-    "searches \\User\\Payloads\\ for payloads to install or the place you say"
+def search_for_payloads(where="/User/Payloads/") -> dict:
+    "searches /User/Payloads/ for payloads to install or the place you say"
     payloads = {}
     place = path + where
     if os.name == "nt":
-        place = place.replace("/", "\\")
-    else :
-        place = place.replace("\\", "/")
-        
+        place = place.replace("/", "/")
+    else:
+        place = place.replace("/", "/")
+
     for r, d, _ in os.walk(place):
         for payload in d:
 
@@ -80,14 +57,14 @@ def list_payloads(payloads=search_for_payloads()):
     col = Color
     for index, payload in enumerate(payloads.keys()):
         print(col().RandomColor() + "\n{%s} --> %s" % (str(index + 1), payload + ((15 - len(payload))  # Bug fix
-              * " ") + " >>> " + payloads[payload].replace(path, '')) + col().GetColor('reset'))
+                                                                                  * " ") + " >>> " + payloads[payload].replace(path, '')) + col().GetColor('reset'))
 
     print("\n{000} --> Back To Main Menu")
     return payloads
 
 
 def list_builtin_payloads(payload_type):
-    path = "\\core\\lib\\payloads\\" + payload_type + "\\"
+    path = "/core/lib/payloads/" + payload_type + "/"
     payloads = search_for_payloads(path)
     payloads = list_payloads(payloads)
     print("Please Choose One Of Them (Number Of It): ", end="")
@@ -95,7 +72,7 @@ def list_builtin_payloads(payload_type):
 
 
 def crash_handler(exception: BaseException):
-    with open(path + "\\Errors.log", "a") as f:
+    with open(path + "/Errors.log", "a") as f:
         f.write("[{}] : {}\n".format(dt.now(), str(exception)))
     print("Sth went really wrong that we couldnt handle it\n"
           + "the exceptions value have saved to Errors.log\n"
@@ -108,6 +85,7 @@ def crash_handler(exception: BaseException):
     else:
         print("Ignoring")
 
+
 class Generate:
     def __init__(self, root: str):
         "generates payloads with given root"
@@ -118,7 +96,7 @@ class Generate:
         self.get_info()
         self.get_payload()
         self.payload = encrypt_it(self.payload, chr(random.randint(65, 122)))
-        self.path = create_file(path + "\\Builded\\" + self.path + ".pyw")
+        self.path = create_file(path + "/Builded/" + self.path + ".pyw")
         f = open_file(self.path)
         write_file(f, self.payload)
         notify('report', "Operaion Was Successful")
@@ -145,7 +123,7 @@ class Generate:
             datas.append(data)
         self.args = datas
         print(self.args)
-        self.path = ask_for("Whats the filename  " +
+        self.path = ask_for("Whats the filename " +
                             "for your zkit generated script : ",
                             "using \\|.pyw as your filename",
                             default=['', ''], type=str,
@@ -159,9 +137,28 @@ class Generate:
         self.fields = self.pg.get_fields()
 
 
+def _encrypt(payload, enc):
+    if enc == "":
+        enc_type = random.choice(['BASE85', 'ROT42'])
+    else:
+        enc_type = ENCODING_CHOICES.get(enc, 'ROT42')
+
+    if enc_type == "BASE85":
+        payload = be(payload.encode("UTF-8")).decode("UTF-8")
+        DECODE_STUB = DECODE_STUB_BASE85
+    else:
+        payload = ''.join(chr((ord(w) + 42)for w in payload))
+        DECODE_STUB = DECODE_STUB_ROT42
+    return DECODE_STUB, payload
+
+
 def encrypt_it(payload, b) -> str:
+
+    enc = ask_for("Which Encryption Method Would You Like To Use" +
+                  "Press Enter and left it empty for choosing randomly.\n{1} --> Base85\n{2} --> Rot42", "Using \\| As Encryption Method")
     notify("notify", "Encrypting Data Before Writing On File...", "")
-    payload = be(payload.encode("UTF-8")).decode("UTF-8")
+    DECODE_STUB, payload = _encrypt(payload, enc)
+
     print("Done")
     return DECODE_STUB.format(payload, b=b)
 

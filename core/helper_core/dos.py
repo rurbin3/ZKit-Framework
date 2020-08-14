@@ -2,8 +2,8 @@
 import os
 from core.helper_core import Color, ask_for, notify
 from core.lib.randoms import random_ip, random_int
-from core.lib.dos import SS, SM, MS
-
+from core.lib.dos import SS, SM, MS, MM
+dos_dict = {'1': SS.Run, '2': SM.Run, '3': MS.Run, '4': MM.Run}
 if os.name == 'nt':
     from colorama import init
     init(convert=True)
@@ -21,22 +21,22 @@ class Main:
             + red + "{1}--> SS (Single Ip , Single Port)\n"
             + green + "{2}--> SM (Single Ip , Multiple Ports)\n"
             + blue + "{3}--> MS (Multiple Ips , Single Ports)\n"
-            + yellow + "{4}--> MM (Multiple Ips , Multiple Ports*)\n"
+            + yellow + "{4}--> MM (Multiple Ips , Multiple Ports)\n"
             + magenta + "{000}--> Back To Main Menu" + reset
 
         )
         choice = str(input("..> "))
         if choice == "000":
             pass
-        elif choice in ("1", "2", "3"):
+        elif choice in ("1", "2", "3", "4"):
             info = self.get_info(choice)
             self.run(choice, info)
 
     def _get_source_details(self, choice):
-        if choice == "3":
+        if choice in ("3", "4"):
             source_ip = ask_for("Whats The Ip Addresses You Want To Attack From . " +
-                               "Seperate them by using spaces : ", 'Using \\| As Source Ip.',
-                               type=list)
+                                "Seperate them by using spaces : ", 'Using \\| As Source Ip.',
+                                type=list)
         else:
             source_ip = ask_for(
                 "Whats The Ip Address You Want To Attack From . " +
@@ -53,7 +53,7 @@ class Main:
         victim_ip = ask_for("Whats The Host, Name Or IP You Want To Attack To : ",
                             "Using Ip Or Hostname \\| As Victim Ip")
 
-        if choice == "2":
+        if choice == ("2", "4"):
             victim_ports = ask_for(
                 "What Are The Ports You Want To Attack To . Press Enter (Left Empty) To Use \
                 [80, 443] : ",
@@ -77,17 +77,6 @@ class Main:
     def run(choice, info):
         'Runs a dos attack'
         try:
-            if choice == "1":
-                SS.Run(
-                    *info
-                )
-            elif choice == "2":
-                SM.Run(
-                    *info
-                )
-            elif choice == "3":
-                MS.Run(
-                    *info
-                )
+            dos_dict[choice](*info)
         except (EOFError, KeyboardInterrupt):
             notify("report", "User Requested An Exit.")

