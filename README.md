@@ -3,6 +3,9 @@
 A lightweight framework written in pure python for payload generation and dosing . rootkit, ransomware, file transfer, keylogger all with ZKit-Framework . both available in TCP and UDP for transfering data . keylogger uses email for transfering key stroeks 
 And with user payloads zkit helps you for generating your own payloads
 
+It deosnt only encrypt . it adds a special stub for every platform that hides the process and several encryption methods 
+you have the power to choose which encryption method 
+
 ## What can it do
 
 - It can support you for making a malware for a speciefied target . (With User-Payloads) 
@@ -24,7 +27,7 @@ And with user payloads zkit helps you for generating your own payloads
 
 - Build KeyLogger TCP and UDP or even transfer using email
 
-- Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
+- Payload uses an encryption method and random variable names random whitespaces to fool the AVs . Virus total result is : 0/59
 
 User payloads can be found in --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
 
@@ -51,13 +54,18 @@ Done !
 
 ### Without Git
 Easily [download it](https://github.com/000Zer000/ZKit-Framework/archive/master.zip) .
+
 Open CMD.exe on windows or terminal on linux
+
 Unzip the `ZKit-Framework-master.zip` .
+
 Make sure you have pip installed . Then run :
+
 ```batch
 cd ZKit-Framework
 pip install -r requirements.txt
 ```
+
 > If any problem found . You can share it with me on issue tab .
 
 Done !
@@ -67,7 +75,9 @@ ZKit-Framework is licensed under Apache Software License 2.0 full license at [Li
 
 ## Using ZKit
 Using ZKit is easy just `python zkit.py` . there is no argument everything work with menues.
+
 Outputs are saved in `\Builded\` directory .
+
 Rootkits, Ransomwares, keylogger, User payloads all are in `\builded\` directory
 
 If any issue found please open an issue to solve it
@@ -75,11 +85,16 @@ If any issue found please open an issue to solve it
 ## Contact Author
 
 You can contact me from my personal email : 000Zer000@pm.me
+
 And i will reply you back with 000Zer000@protonmail.com
+
 Or you can contact me from twitter . [000Zer000 On Twitter](https://twitter.com/__000Zer000__)
 
 ## Donating
 Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of **Our HEROS** in readme _show your love to hack with supporting it._
+
 My bitcoin address is : `1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf`
+
 Any other currency's available too . just open an issue and i will send you the address if its available
+
 If addresses are broken let me know to update them .
