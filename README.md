@@ -1,6 +1,7 @@
-# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) ![Repo size](https://img.shields.io/github/repo-size/000Zer000/ZKit-Framework) [![Open Issues](https://img.shields.io/github/issues/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/issues) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commit/master)
+# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) ![Code Size](https://img.shields.io/github/languages/code-size/000Zer000/ZKit-Framework) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commit/master)
 
-ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
+A lightweight framework written in pure python for payload generation and dosing . rootkit, ransomware, file transfer, keylogger all with ZKit-Framework . both available in TCP and UDP for transfering data . keylogger uses email for transfering key stroeks 
+And with user payloads zkit helps you for generating your own payloads
 
 ## What can it do
 
@@ -8,7 +9,7 @@ ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
   In several ways with encrypting your malware 
   and inserting a decode stub for decryption in runtime and some 
   special methods for hidding malware from user in windows and linux
- 
+
 - Payloads available in ZKit-Market so you can install it
 
 - Building you own payload and publishing it. [Tutorial](https://github.com/000Zer000/ZKit-Framework/wiki/Creating-My-Own-Payload)
@@ -25,133 +26,60 @@ ZKit Is A Framework Written In Pure Python For Hacking . hacking is colorful .
 
 - Payload uses an encryption method and random variable names to fool the AVs . Virus total result is : 0/59
 
-You can take a look at for installing more payloads --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
+User payloads can be found in --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
 
 No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
 and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
 
-you can repair your framework if you modified it or broken by accident . just run `python updater.py repair`
-
-**[Documentation](https://github.com/000Zer000/ZKit-Framework/wiki) is complete and updated and is full of tips about making your own payload.**
-
-Special Thanks to this project's first watcher and stargazer [Flechablanca19](https://github.com/flechablanca19)
-
-Need an update , found an issue or want a feature ? Fell free to [open an issue and please use templates](https://github.com/000Zer000/ZKit-Framework/issues/new/choose) and tell me your idea .
-
-## So what do i need for running it
-
- **You dont need much packages only** :
-
-- scapy used for **dosing** .
-
-- colorama for **making texts colorful** . (*no need for it in linux*)
-
-NOTE : windows payloads have to be **compiled** to work . but **not for linux payloads** . because linux has python built-in .
-
- *thats it you are all done* .
-
-with these minimium requirements you can do these amazing things want to try it ? [Get Me To Install Section](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#installing)
-
-Do you like ZKit ?? If so [donate](https://github.com/000Zer000/ZKit-Framework/blob/master/README.md#donating) to show your love to hacking and
-
-Be in [OUR HEROES](https://github.com/000Zer000/ZKit-Framework/README.md#our-heroes) list in readme with your favorite sentence .see your self on top or you can star this project to show your support.you can watch this repo for getting
-
-notification for amazing changes .
-
-## Our Heros
-
-**LAVAlAnDsS Have Donated** . He/She have donated 0.000577919 XBT (At the time of writing 6.50 USD) . And His/Her Sentence : **We shall try to change the world we cant wait for someone to do this**
-
-Please be careful i dont have any control on what donors say . its a chance with freedom .
-
-Do you want to be in Our Heros List And Say A Sentence On TOP OF THE README without any limit ? you can [donate](https://github.com/000Zer000/ZKit-Framework/README.md#donating) too .
-
 ## Installing
 
-Now you know what can this powerful framework do . Its time for installization . 
+installing it is easy . check out the methods below for installing it
 
-### Using Git
-
-Make sure you have git installed .
-
-Open CMD.exe on windows or terminal on Linux/Unix
-
-You can install git from [latest version of git official repo on github](https://github.com/git-for-windows/git/releases/latest)
-
-Make sure you have pip installed . Then run :
-
-```batch
-
-# git clone https://github.com/000Zer000/ZKit-Framework.git
-Cloning into 'ZKit-Framework'...
-...
-# CD ZKit-Framework
-
-# pip install -r requirements.txt
-Collecting colorama
+### With Git
+```
+git clone https://github.com/000Zer000/ZKit-Framework.git
+pip install -r requirements.txt
   Downloading colorama-0.4.3-py2.py3-none-any.whl (15 kB)
 Collecting scapy
   ...
-
 ```
+
+Done !
 
 > If any problem found . You can share it with me on issue tab .
 
-Do you like ZKit ???
-
-**You Can Help Me keeping everything up with donating me**
-[Head to donate section](https://github.com/000Zer000/ZKit-Framework/README.md#donating)
-
 ### Without Git
-
 Easily [download it](https://github.com/000Zer000/ZKit-Framework/archive/master.zip) .
 Open CMD.exe on windows or terminal on linux
 Unzip the `ZKit-Framework-master.zip` .
 Make sure you have pip installed . Then run :
-
 ```batch
-
 cd ZKit-Framework
 pip install -r requirements.txt
-
 ```
-
 > If any problem found . You can share it with me on issue tab .
 
-## License
+Done !
 
+## License
 ZKit-Framework is licensed under Apache Software License 2.0 full license at [License](https://github.com/000Zer000/ZKit-Framework/blob/master/LICENSE)
 
 ## Using ZKit
-
 Using ZKit is easy just `python zkit.py` . there is no argument everything work with menues.
-
 Outputs are saved in `\Builded\` directory .
-
 Rootkits, Ransomwares, keylogger, User payloads all are in `\builded\` directory
 
 If any issue found please open an issue to solve it
 
-
-## Disclamer 
-
-ZKit is a framework  for helping ethical hacking education  It should not be used for any illegal or malicous purposes. The author (000Zer000) have no responsibility for any damages that may be caused by the payloads generated with ZKit-Framework.
-
 ## Contact Author
 
 You can contact me from my personal email : 000Zer000@pm.me
-
 And i will reply you back with 000Zer000@protonmail.com
-
 Or you can contact me from twitter . [000Zer000 On Twitter](https://twitter.com/__000Zer000__)
 
-
 ## Donating
-
 Do you like ZKit ? Do you often use it ? ZKit-Framework is a solo work . Make a donate and be in the list of **Our HEROS** in readme _show your love to hack with supporting it._
-
 My bitcoin address is : `1G8cHZc2kYPUfGVPtgGckemskmYcK6xayf`
-
 Any other currency's available too . just open an issue and i will send you the address if its available
 If addresses are broken let me know to update them .
