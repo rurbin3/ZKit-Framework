@@ -1,9 +1,9 @@
-# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) ![Code Size](https://img.shields.io/github/languages/code-size/000Zer000/ZKit-Framework) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commit/master)
+# ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) [![Code Size](https://img.shields.io/github/languages/code-size/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commits/master)
 
 A lightweight framework written in pure python for payload generation and dosing . rootkit, ransomware, file transfer, keylogger all with ZKit-Framework . both available in TCP and UDP for transfering data . keylogger uses email for transfering key stroeks 
 And with user payloads zkit helps you for generating your own payloads
 
-It deosnt only encrypt . it adds a special stub for every platform that hides the process and several encryption methods 
+It doesnt only encrypt a malware or your own malware  . it adds a special stub for every platform that hides the process and several encryption methods 
 you have the power to choose which encryption method 
 
 ## What can it do
@@ -29,8 +29,6 @@ you have the power to choose which encryption method
 
 - Payload uses an encryption method and random variable names random whitespaces to fool the AVs . Virus total result is : 0/59
 
-User payloads can be found in --> [zkit-market](https://github.com/000Zer000/ZKit-Market) . 
-
 No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
 and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
@@ -49,6 +47,8 @@ Collecting scapy
 ```
 
 Done !
+
+**Powerful framework with only 3 requirements ! Doenst sound great ?? i will be happy if you star it . and please watch it for getting notification for new release** 
 
 > If any problem found . You can share it with me on issue tab .
 
