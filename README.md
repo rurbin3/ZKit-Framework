@@ -1,7 +1,7 @@
 # ZKit-Framework [![Maintainability](https://api.codeclimate.com/v1/badges/00ca04339de7350a9f1f/maintainability)](https://codeclimate.com/github/000Zer000/ZKit-Framework/maintainability) [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/000Zer000/ZKit-Framework)](https://codeclimate.com/github/000Zer000/ZKit-Framework/) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![License](https://img.shields.io/github/license/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework/blob/LICENSE) [![Code Size](https://img.shields.io/github/languages/code-size/000Zer000/ZKit-Framework)](https://github.com/000Zer000/ZKit-Framework) [![Latest Release](https://img.shields.io/github/v/release/000Zer000/ZKit-Framework?label=Latest%20Release)](https://github.com/000Zer000/ZKit-Framework/releases/latest) [![Latest Commit](https://img.shields.io/github/last-commit/000Zer000/ZKit-Framework?label=Latest%20commit)](https://github.com/000Zer000/ZKit-Framework/commits/master)
 
 A lightweight framework written in pure python for payload generation and dosing . rootkit, ransomware, file transfer, keylogger all with ZKit-Framework . both available in TCP and UDP for transfering data . keylogger uses email for transfering key stroeks 
-And with user payloads zkit helps you for generating your own payloads
+And with user payloads zkit helps you for generating your own payloads . **Everything a hacker needs**
 
 It doesnt only encrypt a malware or your own malware  . it adds a special stub for every platform that hides the process and several encryption methods 
 you have the power to choose which encryption method 
@@ -19,7 +19,7 @@ you have the power to choose which encryption method
 
 - Run dos attacks
 
-- Build rootkit rverse shell
+- Build rootkit reverse shell
 
 - Build file transfer payload (reverse shell rootkit features included too) both TCP and UDP
 
@@ -27,15 +27,19 @@ you have the power to choose which encryption method
 
 - Build KeyLogger TCP and UDP or even transfer using email
 
+- Several encryption method . **but you have the power to choose which** 
+
 - Payload uses an encryption method and random variable names random whitespaces to fool the AVs . Virus total result is : 0/59
 
 No need for updating it manualy . zkit will check for updates everytime you run it . and will warn you about the new release 
 
 and updating it is very easy . just go to the root directory of zkit and run `python updater.py update`
 
+and if you modified your zkit or its just broken easily repair it using `python updater.py repair`
+
 ## Installing
 
-installing it is easy . check out the methods below for installing it
+installing it is easy . check out two methods below for installing it
 
 ### With Git
 ```
@@ -76,9 +80,7 @@ ZKit-Framework is licensed under Apache Software License 2.0 full license at [Li
 ## Using ZKit
 Using ZKit is easy just `python zkit.py` . there is no argument everything work with menues.
 
-Outputs are saved in `\Builded\` directory .
-
-Rootkits, Ransomwares, keylogger, User payloads all are in `\builded\` directory
+Rootkits, Ransomwares, keylogger, User payloads generated all are in `\builded\` directory
 
 If any issue found please open an issue to solve it
 
