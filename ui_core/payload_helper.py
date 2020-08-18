@@ -1,7 +1,7 @@
 from ui_core.coloring import Color
 import os
 
-path = '/'.join(__file__.replace("\\", '/').split("/")[:-3])
+path = '/'.join(__file__.replace("\\", '/').split("/")[:-2])
 
 
 def search_for_payloads(where="/User/Payloads/") -> dict:
