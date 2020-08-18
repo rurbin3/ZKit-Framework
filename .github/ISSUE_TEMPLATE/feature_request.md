@@ -8,7 +8,7 @@ assignees: 000Zer000
 ---
 
 **Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Example : its hard to always enter my another computer ip address
+A clear and concise description of what the problem is. Example: it's difficult to always enter my other computer IP address.
 
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen. 

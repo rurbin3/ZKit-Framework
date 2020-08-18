@@ -14,10 +14,10 @@ A clear and concise description of what the bug is.
 A clear and concise description of what you expected to happen.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem. more info on bug report faster and better it can get solved
+If applicable, add screenshots to help explain your problem. The more information you add in the bug report, the faster it can get solved.
 
 **Desktop (please complete the following information):**
- - OS: (Knowing if its linux or windows is enough)
+ - OS: (Specify if it is Linux or Windows)
  - Python Version [e.g. 2.7.0, 3.7.1]
  - Version Of ZKit-Framework [e.g. 1.2.0]
 

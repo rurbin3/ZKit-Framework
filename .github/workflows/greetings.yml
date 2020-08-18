@@ -9,4 +9,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Thanks for opening an issue . You have helped ZKit'' first issue'
+        issue-message: "Thank you for opening an issue. If I do not reply soon, there might be a time zone difference. Have Fun!"
+        pr-message: "Thank you for caring, I will check out your PR as soon as possible."
