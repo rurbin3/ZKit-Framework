@@ -80,7 +80,7 @@ $ python zkit.py
 ```
 No arguments neccessary.
 
-Generated rootkits, ransomwares, keyloggers, and custom payloads are in the `\builded\` directory.
+Generated rootkits, ransomwares, keyloggers, and custom payloads are in the `\Output\builded\` directory.
 
 ## Contact Author
 
