@@ -95,3 +95,11 @@
    4.Added CHANGELOG
 
    5.Now a core dos module exists and dos modules are like config files
+
+1.4.9:
+
+   1.Now ruby is supported and has stubs . for now only python and ruby has stubs
+
+   2.Bug fix and critical changes in updater.py (with help of Teraskull)
+
+   3. Changed the whole directory tree

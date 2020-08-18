@@ -1,4 +1,4 @@
-from core import __version__
+from release import __version__,files,dirs
 import requests
 import os
 import sys
@@ -6,7 +6,9 @@ import shutil
 LATEST_VERSION_URL = "https://github.com/000Zer000/ZKit-Framework/releases/latest"
 DOWNLOAD_URL = "https://codeload.github.com/000Zer000/ZKit-Framework/zip/{version}"
 PATH = '\\'.join(__file__.replace("/", '\\').split("\\")[:-3])
-
+"""
+Thanking Teraskull . He have helped me a lot in here 
+"""
 class API:
     def __init__(self):
         print("Initalizing updater")
@@ -33,7 +35,7 @@ class API:
                   please update your framework with command : \
                   python updater.py update".format(self.latest_release, __version__))
         else:
-            print("Your are using the latest version ({})".format(__version__))
+            print(f"Your are using the latest version ({__version__})")
 
     def _download_version(self, version):
         print("Downloading version {} from github...".format(version), end="")
@@ -44,18 +46,16 @@ class API:
 
         with open(sourcepath, 'wb') as f:
             f.write(resp.content)
-        return sourcepath
 
     def update(self):
         self.deleverything()
         self.check_for_updates()
-        source = self._download_version(self.latest_release)
-        print("Extracting {} for getting source code...".format(
+        self._download_version(self.latest_release)
+        print("Extracting {} to retreive source code...".format(
             self.sourcepath), end="")
-        _extract(source, PATH)
+        self._extract(self.sourcepath, PATH)
         print("Done")
-        print("Successfully updated ZKit-Framework v{} to v{}".format(__version__,
-                                                                      self.latest_release))
+        print(f"Successfully updated ZKit-Framework v{__version__} to v{self.latest_release}")
 
     def repair(self):
         self.check_for_updates()
@@ -75,18 +75,20 @@ class API:
                 (does the same but addes more features) (Y/N) ?").lower() \
                 == "Y" else __version__
             self._download_version(version)
-            print("Extracting {} for getting source code...".format(
-                self.sourcepath), end="")
-            _extract(source, PATH)
+            print(f"Extracting {self.sourcepath} to retrieve source code...", end="")
+            self._extract(self.sourcepath, PATH)
             print("Done")
             print("Your ZKit-Framework was successfully repaired")
             
     def deleverything(self):
-        shutil.rmtree(PATH,False)
-        os.mkdir(PATH)
+        # thanking Teraskull for his help here
+        for file in files:
+            os.remove(file)
+        for dir_ in dirs:
+            os.rmdir(dir_)
 
     @staticmethod
-    def _extract(self, file: str, where_to_extract: str):
+    def _extract(file: str, where_to_extract: str):
         from zipfile import ZipFile
         with ZipFile(file, 'r') as zip_:
             zip_.extractall(where_to_extract)
@@ -95,9 +97,9 @@ class API:
 
 if len(sys.argv) != 1:
     api = API()
-    if sys.argv[1].lower() == "update":
+    if sys.argv[1].lower() in ("-u", "update"):
         api.update()
-    elif sys.argv[1].lower() == "repair":
+    elif sys.argv[1].lower() in ("-r", "repair"):
         api.repair()
     else:
         print("Invalid Input Please run it with '-h' for getting help")

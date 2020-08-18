@@ -3,7 +3,6 @@
 # This Work Is Licensed Under Apache Software License 2.0
 # More Can Be Found In The LICENSE File.
 __author__ = "Zer0"
-__version__ = "1.4.8"
 __license__ = "Apache Software License 2.0"
 __status__ = "Production"
 import os
@@ -11,9 +10,13 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 try:
     # Doing some imports
-    from core.helper_core import notify, Color, Generate, dos, \
-        ctrler, init, print_banner, list_builtin_payloads, search_for_payloads, crash_handler, list_payloads
-
+    from ui_core.coloring import notify, Color
+    from ui_core._core import Generate, init, print_banner, crash_handler
+    from ui_core.payload_helper import list_builtin_payloads, search_for_payloads, list_payloads
+    import ui_core.controller as ctrler
+    from release import version
+    from lib._errors import BackToMainMenu
+    import ui_core.dos as dos
     from updater import API as updater
 except (ImportError, ModuleNotFoundError) as e:
     # Ops ! Sth is missing
@@ -25,10 +28,13 @@ except (ImportError, ModuleNotFoundError) as e:
     )
     raise
 
+__version__ = version
 
 def list_builtin_payloads_helper(type_):
     payloads = list_builtin_payloads(type_)
     index = input("")
+    if index == "000":
+        raise BackToMainMenu
     Generate(list(payloads.values())[int(index) - 1])
 
 
@@ -42,6 +48,8 @@ def list_payloads_helper():
         print(
             "Please Choose One Of Them (Number Of It): ", end="")
         index = input("")
+        if index == "000":
+            raise BackToMainMenu
         Generate(list(payloads.values())[int(index) - 1])
 
 
@@ -56,22 +64,15 @@ class Start:
         init()
         print_banner()
         updater().check_for_updates()
-        # Hard And Boring Code
-        print(
-            "\t " * 5 + "Hacking is" + red + " C " + green + "O " + blue + "L " +
-            yellow + "O " + magenta + "R " + green +
-            "F " + red + "U " + magenta + "L " + reset
-        )
-        print(
-            "Available Options Are :\n"
-            + red + "  {1} --> Create A RootKit\n"
-            + green + "  {2} --> Create A Ransomware\n"
-            + blue + "  {3} --> Create A KeyLogger \n"
-            + yellow + "  {4} --> Run A Dos Attack\n"
-            + magenta + "  {5} --> Connect To A Victim\n"
-            + red + "  {6} --> Generate Your User Payloads\n"
-            + cyan + "  {000}" + "--> Exit ZKit-Framework\n" + reset
-        )
+        print("\t " * 5 + f"Hacking is {red}C {green}O {blue}L {yellow}O {magenta}R {green}F {red}U {magenta}L {reset}")
+        print("Available options:\n"
+              f"{red}{{1}} --> Create a rootKit\n"
+              f"{green}{{2}} --> Create a ransomware\n"
+              f"{blue}{{3}} --> Create a keyLogger \n"
+              f"{yellow}{{4}} --> Run a DOS attack\n"
+              f"{magenta}{{5}} --> Connect to a victim\n"
+              f"{red}{{6}} --> Generate your user payloads\n"
+              f"{cyan}{{000}} --> Exit ZKit-Framework\n{reset}")
 
     def _execute_payload_related(self, choice):
         choice = choice.replace(
@@ -90,23 +91,25 @@ class Start:
             list_payloads_helper()
         elif choice is not None:
             notify(
-                "problem", "Invalid Input {" + "{}".format(choice) + "}")
+                "problem", f"Invalid Input '{choice}'")
 
     def main_loop(self):
-        while True:
+        try:
+         while True:
 
             choice = str(input("..> "))
 
             if choice == "000":
                 break
             self.execute(choice)
+        except BackToMainMenu:
+            self.main_loop()
 
 
 starter = Start()
 try:
     starter.main_loop()
-except BaseException as e:
-    crash_handler(e)
-
 except (KeyboardInterrupt, EOFError):
     print("\nPlease Type '000' To Exit ZKit-Framework\n")
+except BaseException as e:
+    crash_handler(e)
