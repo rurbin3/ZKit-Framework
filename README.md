@@ -68,7 +68,7 @@ $ cd ZKit-Framework
 $ pip install -r requirements.txt
 ```
 
-**Powerful framework with only 3 requirements! Doesn't that sound great? I will be happy if you star this project. You can also watch it to get notifications about future releases.** 
+**Powerful framework with only 4 requirements! Doesn't that sound great? I will be happy if you star this project. You can also watch it to get notifications about future releases.** 
 
 > If you encounter any problems, please submit an issue.
 
