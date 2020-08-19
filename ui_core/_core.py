@@ -31,15 +31,17 @@ def init():
             os.mkdir(f"{_path}")
         except:
             pass
-    os.popen(f'echo. > "{path + "/Errors.log"}"'.format(path + "/Errors.log"))
+    if os.name == "nt":
+        os.popen(f'echo. > "{path + "/Errors.log"}"')
+    else:
+        os.popen(f'touch {path + "/Errors.log}"')
 
-    os.system('\t' * 400)
+    print('\t' * 400)
 
 
 def _log(exception):
     with open(path + "/Errors.log", "a") as f:
-        f.write("[{}] : Error {} \nFull Traceback: \n{}\n{}".format(
-            dt.now(), str(exception),traceback.format_exc(), ("+" * 50)))
+        f.write(f"[{dt.now}] : Error {str(exception)} \nFull Traceback: \n{traceback.format_exc()}\n{"+" * 85}")
 
 
 def crash_handler(exception):
@@ -48,10 +50,10 @@ def crash_handler(exception):
           + "the exceptions value have saved to Errors.log\n"
           + "please report this on github to me."
           + "Do you want zkit to reraise it ? (reraising may help better) (Y/N): ", end='')
-    choice = str(input()).lower()
-    if choice.strip() == "y":
+    choice = str(input()).lower().strip()
+    if choice == "y":
         print("This is going to print full error . please report it on github")
-        print(traceback.format_exc())
+        raise
     else:
         print("Ignoring")
 
