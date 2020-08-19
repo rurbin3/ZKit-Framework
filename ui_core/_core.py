@@ -1,4 +1,4 @@
-"""The Core Module of ZKit-Framework Contains : some useful methods like a custom create_file"""
+"""The Core Module of ZKit-Framework"""
 import os
 import random
 import socket as s
@@ -22,10 +22,10 @@ LANG_EXT = {"python": ".pyw", "ruby" : ".rb", "perl" : ".pl", "java" : ".java"}
 def init():
     'inits the zkit . without you will get several errors'
     pathslist = [path + "/Output",path + "/Output/Builded/", path + '/Output/Loot/',
-                     path + "/User",
-                     path + "/User/Payloads/",
+                 path + "/User",
+                 path + "/User/Payloads/",
 
-                     ]
+                ]
     for _path in pathslist:
         try:
             os.mkdir(f"{_path}")
@@ -34,14 +34,14 @@ def init():
     if os.name == "nt":
         os.popen(f'echo. > "{path + "/Errors.log"}"')
     else:
-        os.popen(f'touch {path + "/Errors.log}"')
+        os.popen(f'touch {path + "/Errors.log"}')
 
     print('\t' * 400)
 
 
 def _log(exception):
     with open(path + "/Errors.log", "a") as f:
-        f.write(f"[{dt.now}] : Error {str(exception)} \nFull Traceback: \n{traceback.format_exc()}\n{"+" * 85}")
+        f.write(f"[{dt.now}] : Error {str(exception)} \nFull Traceback: \n{traceback.format_exc()}\n{'+' * 85}")
 
 
 def crash_handler(exception):
