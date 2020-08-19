@@ -21,8 +21,7 @@ LANG_EXT = {"python": ".pyw", "ruby" : ".rb", "perl" : ".pl", "java" : ".java"}
 
 def init():
     'inits the zkit . without you will get several errors'
-    if os.name == "nt":
-        pathslist = [path + "/Output",path + "/Output/Builded/", path + '/Output/Loot/',
+    pathslist = [path + "/Output",path + "/Output/Builded/", path + '/Output/Loot/',
                      path + "/User",
                      path + "/User/Payloads/",
 
