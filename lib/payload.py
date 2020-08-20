@@ -27,6 +27,7 @@ def rpp_path(path):
     return path.replace(sys.path[0].replace('\\', '/'), '').replace('/', '.')[1:-1]
 class AntiMalware:
     def __init__(self, file):
+        self.file = file
         self.f = open(file, 'r')
         self.fd = self.f.read()
         self.fd = self._remove_comments(self.fd)
@@ -52,36 +53,35 @@ class AntiMalware:
         # files     
         if "import" in self.fd or "exec" in self.fd:
             # Hard security
-            raise SystemExit(f"{file} Is A Possible Malware . (trys attacking you)\n"
+            raise SystemExit(f"{self.file} Is A Possible Malware . (trys attacking you)\n"
                              "Exiting because of your safety. If the payload is yours\n"
                              "avoid using import and exec. or if you have downloaded it from zkit-market\n"
                              "plese report to me to check it and if its a real threat . it will be removed\n")
-    @staticmethod
-    def _check_for_phishing(file):
+ 
+    def _check_for_phishing(self):
         # with print or input they can easily print message that looks
         # like zkits one and steal data from user
         # if you are a developer user-payload or want to develop one 
         # you can get whatever your payload needs with specifing it in zkit.yml
         if "print" in self.fd or "input" in self.fd:
             raise SystemExit(
-                             f"{file} Is A Possible Phishing Attack.(trys attacking you)\n"
+                             f"{self.file} Is A Possible Phishing Attack.(trys attacking you)\n"
                              "Exiting because of your safety. If the payload is yours\n"
                              "avoid using print and input. or if you have downloaded it"
                              "from zkit-market\n"
                              "plese report to me to check it and if its a real threat"
                              "it will be removed\n")
 
-    def check_for_threats(self, file)-> bool:
+    def check_for_threats(self)-> bool:
         """Checks for threats in python file . has noreturn if anything was found else returns True
 
         Args:
-            file ([type]): [description]
-
+            file (str): path to the file to check
         Returns:
             bool: Returns True if nothing was detected . if anything was detected rasies SystemExit
         """
-        self._check_for_malicious_code(file)
-        self._check_for_phishing(file)
+        self._check_for_malicious_code()
+        self._check_for_phishing()
         return True
 class PayloadGenerator(Interact, required_vars=REQUIRED_VARS, optional_vars=OPTIONAL_VARS):
     def __init__(self, root: str):
@@ -124,7 +124,7 @@ class PayloadGenerator(Interact, required_vars=REQUIRED_VARS, optional_vars=OPTI
                       "if your payloads are for windows linux name them windows.py , linux.py"
                       "if you payloads platforms are not linux or windows please change level to "
                       "advanced"
-                      "If the payload is not yours . please report it to developer of it zkit will"
+                      "If the payload is not yours . please report it to developer of it for now zkit will"
                       "ignore it")
                 hider = ""
         else :
@@ -141,7 +141,7 @@ class PayloadGenerator(Interact, required_vars=REQUIRED_VARS, optional_vars=OPTI
             [print(Color().RandomColor() + f"{key} : {info[key]}"
                    + Color().GetColor('reset'), end="\n\n") for key in info]
 
-        if len(self.payloads) >= 2:
+        if len(self.payloads) > 1:
             print("This Payload-Pack has {} diffrent payloads in it (usually for diffrent platform) ."
                   "They are : \n".format(len(self.payloads)))
             for index, key in enumerate(self.payloads):
