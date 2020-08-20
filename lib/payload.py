@@ -25,6 +25,7 @@ CONFIG_FILE_EX = "zkit.yaml"
 # relative posix python path
 def rpp_path(path):
     return path.replace(sys.path[0].replace('\\', '/'), '').replace('/', '.')[1:-1]
+'''
 class AntiMalware:
     def __init__(self, file):
         self.file = file
@@ -83,6 +84,7 @@ class AntiMalware:
         self._check_for_malicious_code()
         self._check_for_phishing()
         return True
+''' # Fix this in new release
 class PayloadGenerator(Interact, required_vars=REQUIRED_VARS, optional_vars=OPTIONAL_VARS):
     def __init__(self, root: str):
         self.root = root
@@ -95,7 +97,8 @@ class PayloadGenerator(Interact, required_vars=REQUIRED_VARS, optional_vars=OPTI
         self.info = self.validate_vars(self.info)
         self.payloads = {}
         for payload in self.info['payloads']:
-            AntiMalware(self.root + payload + ".py")
+            
+            # AntiMalware(self.root + payload + ".py") It will be uncommeted after fix
             self.payloads[payload] = imp(
                 "." + payload, rpp_path(self.root))
     
