@@ -32,7 +32,7 @@ class AntiMalware:
         self.fd = self.remove_comments(fd)
         self.check_for_threats()
     @staticmethod
-    def _remove_comments(string : str) -> str:
+    def remove_comments(string : str) -> str:
         out = []
         for line in string.split('\n'):
             line += "\n"
