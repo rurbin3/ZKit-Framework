@@ -8,7 +8,7 @@ homepage: https://gihub.com/000Zer000/ZKit-Framework # Not required
 # About Author
 author: 000Zer000
 profile: https://gihub.com/000Zer000 # Not required
-
+fields:host,port,shift
 # About Payload
 payloads: [linux, windows]
 level: basic # Not required
