@@ -29,10 +29,10 @@ class AntiMalware:
     def __init__(self, file):
         self.f = open(file, 'r')
         self.fd = self.f.read()
-        self.fd = self.remove_comments(fd)
+        self.fd = self._remove_comments(fd)
         self.check_for_threats()
     @staticmethod
-    def remove_comments(string : str) -> str:
+    def _remove_comments(string : str) -> str:
         out = []
         for line in string.split('\n'):
             line += "\n"
